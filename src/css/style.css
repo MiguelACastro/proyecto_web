@@ -1,0 +1,548 @@
+@import "tailwindcss" prefix(tw);
+@plugin "daisyui" {
+    themes: light --default;
+    
+};
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: var(--primary-color);
+  --color-secondary: var(--secondary-color);
+}
+/* ===== Fuentes ===== */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url(fonts/Ubuntu-Regular.ttf);
+    font-weight: normal;
+    font-style: regular;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url(fonts/Ubuntu-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url(fonts/Lato-Regular.ttf);
+    font-weight: normal;
+    font-style: regular;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url(fonts/Lato-Bold.ttf);
+    font-weight: bold;
+    font-style: regular;
+}
+
+
+/* ===== Variables ===== */
+:root {
+    --primary-color: #1B246F;
+    --secondary-color: #0076f4;
+    --background-color: #E5E5E5;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --body-font: Lato, sans-serif;
+    --title-font: Ubuntu, sans-serif;
+}
+
+
+/* ===== General ===== */
+body {
+    font-family: var(--body-font);
+    padding: 0;
+    margin: 0;
+    background-color: var(--background-color);
+    min-height: 200vh;
+}
+
+button, label {
+    cursor: pointer;
+}
+/* ===== Encabezado ===== */
+header {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;  
+    padding: 1.25rem;
+
+    background-color: var(--primary-color);
+    box-sizing: border-box;
+}
+
+/* ===== Logo ===== */
+.logo-container {
+    display: inline-block;
+
+    font-family: var(--title-font);
+    font-size: clamp(1rem, 2.5vw, 2.5rem);
+    color: white;
+}
+
+.logo {
+    display: inline;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    margin-right: 0.6rem;
+}
+
+/* ===== Barra de búsqueda ===== */
+.search-bar {
+    display: flex;
+    width: 40%;
+    padding: 0.3rem;
+
+    background-color: var(--background-color); 
+    border-radius: 20px;
+}
+
+.search-input {
+    width: 90%;
+    padding: 0.5rem;
+    border: none;
+    
+    font-size: 16px;
+    outline: none;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.search-button {
+    vertical-align: middle;
+    padding: 0;
+    margin-left: 0.3rem;
+    border: none;
+
+    background: none;
+}
+
+#search-icon {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ===== Nav de acciones ===== */
+.action-container {
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+
+    list-style: none;
+}
+
+
+.action-item {
+    text-decoration: none;
+    color: white;
+}
+
+.action-icon {
+    display: inline;
+    vertical-align: middle;
+}
+
+/* ===== Submenú ===== */
+.submenu {
+    position: absolute;
+    z-index: 100;
+
+    display:block;
+    overflow: hidden;
+    max-height: 0;
+    padding: 0 20px;
+    line-height: 1.5;
+
+    background-color: var(--primary-color);
+    box-shadow: var(--shadow) 0px 3px 6px, var(--shadow) 0px 3px 6px;
+    list-style: none;
+
+    transition: max-height 0.7s ease-out;
+}
+
+li:hover .submenu {
+    max-height: 500px;
+    transition: max-height 0.7s ease-in;
+}
+
+/* ===== Botón de hamburguesa ===== */
+.menu-toggle {
+    display: none;
+}
+
+.menu-button {
+    display: none;
+    z-index: 100;
+
+    color: white;
+    font-size: 2rem;
+}
+
+/* ===== Nav de categorías ===== */
+.category-nav {
+    padding: 0.25rem;
+    margin: 0;
+    background-color: #e3d8c2;
+}
+
+.category-list{
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0;
+    list-style: none;
+}
+
+.extra-list {
+    flex-wrap: wrap;
+}
+
+.extra-list > li{
+    margin-bottom: 1rem;
+}
+
+.category-list > li {
+    display: flex;
+    flex: 1 1 10%;
+    justify-content: center;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category-icon {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 5px;
+}
+
+.category-name {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.more-categories {
+  display: none;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.more-categories summary {
+    padding: 0.8rem;
+    
+    font-size: 0.9rem;
+    text-align: center;
+
+    background-color: #d7cbb1;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.hero {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: justify;
+    height: 75vh;
+
+    background-image: url(resources/hero-thinkpad-x1-desktop\ 1.png);
+    background-color: grey;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.hero-content {
+    padding: 0 1.2rem;
+    color: white;
+}
+
+.hero-title {
+    margin-bottom: 1.2rem;
+
+    font-family: var(--title-font);
+    font-size: 3rem;
+}
+
+.hero-text {
+    width: 40%;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.hero-button {
+    padding: 0.8rem 1.4rem;
+    border: none;
+    
+    font-size: 1.2rem;
+    color: white;
+    
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+/* ===== Contenedor principal ===== */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin: 4rem 6% 2rem;
+}
+
+/* ===== Tarjetas ===== */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 25%;
+    height: auto;
+    margin: 1rem;
+    border: 1px groove gainsboro;
+    
+    box-shadow: 8px 8px 16px var(--shadow);
+    border-radius: 15px;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-title {
+    font-size: 1.5rem;
+}
+
+.card-text {
+    padding: 0px clamp(10px, 2%, 20px);
+    text-align: justify;
+}
+
+.card-button {
+    margin: 0.4rem;
+    padding: 0.8rem 1.4rem;
+    border: none;
+    
+    font-size: 1.2rem;
+    color: white;
+    
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+}
+
+.content-image {
+    display: block;
+    max-width: 90%;
+    height: auto;
+    margin: 1.5rem auto;
+}
+
+/* ===== Suscribirse al newsletter ===== */
+.newsletter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4% 8%;
+    height: max-content;
+
+    background-color: var(--primary-color);
+}
+
+.newsletter-title, .newsletter-text {
+    color: white;
+}
+
+.newsletter-title {
+    font-family: var(--title-font);
+    font-size: 1.5rem;
+}
+
+.newsletter-text {
+    font-size: 1.2rem;
+    width: 90%;
+}
+
+form {
+    display:flex;
+    width: 60%;
+}
+
+.email-input {
+    flex-grow: 2;
+    border: none;
+    padding: 0 0.5rem;
+    font-size: 1.2rem;
+    
+    background-color: white;
+    border-radius: 10px 0 0 10px;
+}
+
+.submit-button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    
+    font-size: 1.2rem;
+    color: white;
+    
+    background-color: var(--secondary-color);
+    border-radius: 0 10px 10px 0;
+}
+
+.email-input:focus {
+  outline: none;
+}
+
+form:focus-within {
+    outline: solid 1px var(--secondary-color);
+
+}
+
+/* ===== Footer ===== */
+footer {
+    padding: 2rem 20%;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.descripcion > p {
+    margin-bottom: 1rem;
+}
+
+.descripcion > p,
+.descripcion > h3,
+.descripcion > ul {
+    font-size: 1rem;
+}
+
+/* ===== Responsividad para dispositvios móviles===== */
+@media (max-width: 768px) {
+    .logo-container span {
+        display: none;
+    }
+
+    .search-bar {
+        width: 60%;
+    }
+
+    .menu-button {
+        display: block;
+    }
+    
+    .action-bar {
+        flex-direction: column;
+    }
+
+    .action-container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: auto;
+        z-index: 10;
+        
+        width: 200px;
+        height: 100%;
+        padding: 6rem 1.5rem;
+        
+        background-color: rgba(27, 36, 111, 0.75);
+        backdrop-filter: blur(5px);
+        transform: translateX(100%);
+        transition: all 0.75s ease;
+    }
+
+    .menu-toggle:checked ~ .action-container{
+        transform: translateX(0);
+        transition: all 0.75s ease;
+    }
+
+    .category-list {
+        justify-content: center;
+    }
+
+    .category-list li {
+        flex: 1 1 33%;
+    }
+
+    .category-list li.extra-category {
+        display: none; 
+    }
+
+    .more-categories {
+        display: block;
+    }
+
+    .hero {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-text {
+        width: 100%;
+    }
+
+    .card {
+        flex: 1 1 33%;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+
+    .card-button {
+        padding: 0.8em 0.5rem;
+        font-size: 1rem;
+    }
+
+    .newsletter {
+        height: max-content;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .submit-button {
+        font-size: 0.8rem;
+    }
+        
+    form {
+        width: 100%;
+    }
+
+    footer {
+        padding: 2rem 15%;
+    }
+}

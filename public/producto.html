@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electromax</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body>
+    <header>
+        <div class="main-header">
+            <div class="logo-container">
+                <img class="logo" src="resources/logo.png"><span>Electromax</span>
+            </div>
+            <div class="search-bar">
+                <input class="search-input" type="search" placeholder="Buscar producto">
+                <button class="search-button">
+                    <img id="search-icon" src="resources/icons/search_icon.svg">
+                </button>
+            </div>
+
+            <input id="menu-toggle" class="menu-toggle" type="checkbox">
+            <label class="menu-button" for="menu-toggle">☰</label>
+            <nav class="action-container">
+                <ul class="action-bar">
+                    <li>
+                        <a class="action-item" href="#">
+                            <img class="action-icon" src="resources/icons/account_icon.svg">Iniciar Sesión
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#" class="action-item">Iniciar Sesión</a>
+                            </li>
+                            <li>
+                                <a href="#" class="action-item">Registrarse</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="action-item" href="#">
+                            <img class="action-icon" src="resources/icons/cart_icon.svg">Carrito de compra
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <nav class="category-nav">
+            <ul class="category-list">
+                <li>
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/computer.svg">
+                        <p class="category-name">Computación</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/smartphone.svg">
+                        <p class="category-name">Telefonía</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/tv.svg">
+                        <p class="category-name">TV y Video</p>
+                    </a>
+                </li>
+                <li class="extra-category">
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/headphone.svg">
+                        <p class="category-name">Audio</p>
+                    </a>
+                </li>
+                <li class="extra-category">
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/game.svg">
+                        <p class="category-name">Videojuegos</p>
+                    </a>
+                </li>
+                <li class="extra-category">
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/battery.svg">
+                        <p class="category-name">Energía</p>
+                    </a>
+                </li>
+                <li class="extra-category">
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/tool.svg">
+                        <p class="category-name">Herramientas</p>
+                    </a>
+                </li>
+                <li class="extra-category">
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/cable.svg">
+                        <p class="category-name">Cables</p>
+                    </a>
+                </li>
+                <li class="extra-category">
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/smart-home.svg">
+                        <p class="category-name">Smart Home</p>
+                    </a>
+                </li>
+            </ul>
+
+            <details class="more-categories">
+                <summary>Más categorías</summary>
+                <ul class="category-list extra-list">
+                    <li>
+                        <a href="#" class="category-item">
+                            <img class="category-icon" src="resources/icons/headphone.svg">
+                            <p class="category-name">Audio</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-item">
+                            <img class="category-icon" src="resources/icons/game.svg">
+                            <p class="category-name">Videojuegos</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-item">
+                            <img class="category-icon" src="resources/icons/battery.svg">
+                            <p class="category-name">Energía</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-item">
+                            <img class="category-icon" src="resources/icons/tool.svg">
+                            <p class="category-name">Herramientas</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-item">
+                            <img class="category-icon" src="resources/icons/cable.svg">
+                            <p class="category-name">Cables</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-item">
+                            <img class="category-icon" src="resources/icons/smart-home.svg">
+                            <p class="category-name">Smart Home</p>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </nav>
+    </header>
+    <main>
+    <div class="tw:flex tw:flex-col-reverse tw:md:flex-row tw:gap-8 tw:m-12">
+        <div class="tw:carousel tw:carousel-start tw:self-center tw:w-full tw:bg-neutral tw:max-w-md tw:rounded-box tw:space-x-4 tw:p-4">
+            <div class="tw:carousel-item">
+                <img src="resources/ns2.png" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
+            </div>
+            <div class="tw:carousel-item">
+                <img src="resources/nintendo-switch-2-.jpg"
+                    class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
+            </div>
+            <div class="tw:carousel-item">
+                <img src="resources/ns2-2.png" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
+            </div>
+            <div class="tw:carousel-item">
+                <img src="resources/mouse.png" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
+            </div>
+            <div class="tw:carousel-item">
+                <img src="resources/joycons.png" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
+            </div>
+        </div>
+        
+        <div>
+            <h1 class="tw:text-4xl tw:font-semibold">Consola portatil Nintendo Switch 2 de 256GB</h1>
+            <div class="tw:rating tw:items-center tw:mt-2 tw:mr-3">
+                <div class="tw:mask tw:mask-star" aria-label="1 star"></div>
+                <div class="tw:mask tw:mask-star" aria-label="2 star"></div>
+                <div class="tw:mask tw:mask-star" aria-label="3 star" aria-current="true"></div>
+                <div class="tw:mask tw:mask-star" aria-label="4 star"></div>
+                <div class="tw:mask tw:mask-star" aria-label="5 star"></div>
+            </div>
+            <p class="tw:textarea-xl">10 reseñas</p>
+            <div class="tw:divider"></div>
+            <span class="tw:text-4xl tw:text-red-600 tw:mr-2">$11,699</span>
+            <span class="tw:text-2xl tw:text-gray-600 tw:line-through">$14,999</span>
+            <div class="tw:divider"></div>
+            <label for="cantidad" class="tw:block tw:text-xl tw:mb-1.5">Cantidad: </label>
+            <input type="number" id="cantidad" class="tw:input tw:input-primary tw:text-xl tw:rounded-1xl tw:mb-5" />
+            <button class="tw:btn tw:w-1/1 tw:btn-primary tw:rounded-1xl">Añadir al carrito</button>
+        </div>
+    </div>
+    <div class="descripcion tw:m-12">
+        <h2 class="tw:text-3xl tw:font-bold">Descripción</h2>
+        <div class="tw:divider"></div>
+            <h3 class="tw:font-bold">¡Ya está aquí el siguiente paso en la evolución de Nintendo Switch!</h5>
+            <p>
+                Juega en una pantalla más grande, de 1080p, o conecta la consola al televisor para jugar en una resolución de hasta
+                4K*. Gracias a la compatibilidad con el alto rango dinámico (HDR) y una frecuencia de imágenes de hasta 120 fps,
+                disfrutarás de colores nítidos e intensos, así como de partidas fluidas.
+            </p>
+        
+            <p>
+                Acopla los nuevos mandos Joy-Con 2 a la consola con los conectores magnéticos. Incluso puedes usar ambos mandos a
+                modo de ratón en juegos compatibles.
+                Pásalo en grande con juegos nuevos y exclusivos para Nintendo Switch 2, como Mario Kart World. Además, también
+                podrás jugar a títulos compatibles de Nintendo Switch**.
+            </p>
+        
+            <h6>Contenido de la caja: </h6>
+            <ul class="tw:list-disc">
+                <li>1 consola Nintendo Switch 2</li>
+                <li>256 GB de almacenamiento total. Ten en cuenta que parte de la memoria interna se reserva para uso de la consola.
+                </li>
+                <li>1 mando Joy-Con 2 izquierdo</li>
+                <li>1 mando Joy-Con 2 derecho</li>
+                <li>2 correas de los mandos Joy-Con 2</li>
+                <li>1 base de Nintendo Switch 2</li>
+                <li>1 soporte para mandos Joy-Con 2</li>
+                <li>1 adaptador de corriente de Nintendo Switch 2</li>
+                <li>1 cable HDMI™ de ultra alta velocidad</li>
+                <li>1 folleto de información importante de Nintendo Switch 2</li>
+            </ul>
+        
+            <p>
+                La consola Nintendo Switch 2 está disponible en los siguientes idiomas:
+                Español, español de Latinoamérica, inglés del Reino Unido, inglés de EE. UU., francés, francés de Canadá, alemán,
+                italiano, neerlandés, portugués, portugués de Brasil, ruso, japonés, chino tradicional, chino simplificado y
+                coreano.
+            </p>
+        
+            <p>
+                Tamaño: aproximadamente 166 mm x 272 mm x 13,9 mm (con los mandos Joy-Con 2 acoplados).
+                30,7 mm de grosor máximo, desde el extremo de las palancas hasta las protuberancias de los botones ZL y ZR.
+                Peso: Aproximadamente 401 g (con los mandos Joy-Con 2 acoplados: 534 g aproximadamente).
+            </p>
+            <p>
+                * Tanto el televisor como el juego deben ser compatibles con una resolución de 4K. La frecuencia de imágenes para 4K
+                ofrece un máximo de 60 fps.
+            </p>
+        
+            <p>
+                ** Nintendo Switch 2 es compatible con juegos de Nintendo Switch, tanto en formato físico como digital. Es posible
+                que algunos títulos de Nintendo Switch sean incompatibles o no compatibles en su totalidad con Nintendo Switch 2.
+                Los suscriptores de Nintendo Switch Online podrán seguir disfrutando de este servicio en Nintendo Switch 2. Aquí
+                encontrarás más información sobre la compatibilidad.
+            </p>
+    </div>
+    <div class="tw:m-12">
+        <h2 class="tw:text-3xl tw:font-bold">Productos relacionados</h2>
+        <div class="tw:divider"></div>
+        <section class="container">
+            <div class="card">
+                <img class="card-image" src="resources/joy-cons.png">
+                <h2 class="card-title">Joy-Cons</h2>
+                <p class="card-text">Lleva tu experiencia de juego al siguiente nivel con los Controles Azul y Rojo, diseñados para
+                    ofrecerte una inmersión total y un rendimiento superior</p>
+                <button class="card-button">Ver producto</button>
+                </div>
+                
+                <div class="card">
+                    <img class="card-image" src="resources/pro-controller.png">
+                    <h2 class="card-title">Pro Controller</h2>
+                    <p class="card-text">El Control Pro inalámbrico está diseñado para brindar una experiencia de juego precisa, cómoda
+                        y duradera en cada sesión de juego</p>
+                    <button class="card-button">Ver producto</button>
+                </div>
+                
+                <div class="card">
+                    <img class="card-image" src="resources/sd-card.png">
+                    <h2 class="card-title">Memoria MicroSD 256GB</h2>
+                    <p class="card-text">Expande el almacenamiento de tu Nintnendo Switch 2 con esta memoria diseñada para ofrecer
+                        velocidad y rendimiento óptimo.</p>
+                    <button class="card-button">Ver producto</button>
+                </div>
+        </section>
+    </div>
+    <div class="tw:divider"></div>
+    <footer>
+        <div class="tw:footer tw:footer-horizontal tw:grid-cols-2 tw:mb-5">
+            <nav>
+                <h2 class="tw:footer-title">Soporte al cliente</h2>
+                <a href="#" class="tw:link tw:link-hover">Preguntas frecuentes</a>
+                <a href="#" class="tw:link tw:link-hover">Facturación</a>
+                <a href="#" class="tw:link tw:link-hover">Devolución y garantía</a>
+                <a href="#" class="tw:link tw:link-hover">Información de envíos</a>
+            </nav>
+            <nav class="link-category">
+                <h2 class="tw:footer-title"">Acerca de</h2>
+                <a href="#" class="tw:link tw:link-hover">¿Quiénes somos?</a>
+                <a href="#" class="tw:link tw:link-hover">Sostenibilidad</a>
+                <a href="#" class="tw:link tw:link-hover">Trabaja con nosotros</a>
+            </nav>
+            <nav">
+                <h2 class="tw:footer-title"">Legal</h2>
+                <a href="#" class="tw:link tw:link-hover">Términos y condiciones</a>
+                <a href="#" class="tw:link tw:link-hover">Política de privacidad</a>
+                <a href="#" class="tw:link tw:link-hover">Garantía de precio</a>
+            </nav>
+        </div>
+        <nav class="socials">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="resources/icons/facebook.svg">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="resources/icons/instagram.svg">
+            </a>
+            <a href="https://www.tiktok.com" target="_blank">
+                <img src="resources/icons/tiktok.svg">
+            </a>
+        </nav>
+     </footer>
+    </main>
+</body>
+
+</html>

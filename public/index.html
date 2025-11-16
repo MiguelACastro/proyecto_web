@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electromax</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body>
+    <header>
+        <div class="main-header">
+            <div class="logo-container">
+                <img class="logo" src="resources/logo.png"><span>Electromax</span>
+            </div>
+            <div class="search-bar">
+                <input class="search-input" type="search" placeholder="Buscar producto">
+                <button class="search-button">
+                    <img id="search-icon" src="resources/icons/search_icon.svg">
+                </button>
+            </div>
+
+            <input id="menu-toggle" class="menu-toggle" type="checkbox">
+            <label class="menu-button" for="menu-toggle">☰</label>
+            <nav class="action-container">
+                <ul class="action-bar">
+                    <li>
+                        <a class="action-item" href="#">
+                            <img class="action-icon" src="resources/icons/account_icon.svg">Iniciar Sesión
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#" class="action-item">Iniciar Sesión</a>
+                            </li>
+                            <li>
+                                <a href="#" class="action-item">Registrarse</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="action-item" href="#">
+                            <img class="action-icon" src="resources/icons/cart_icon.svg">Carrito de compra
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <nav class="category-nav">
+            <ul class="category-list">
+                <li>
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/computer.svg">
+                        <p class="category-name">Computación</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/smartphone.svg">
+                        <p class="category-name">Telefonía</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/tv.svg">
+                        <p class="category-name">TV y Video</p>
+                    </a>
+                </li>
+                <li class="extra-category">
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/headphone.svg">
+                        <p class="category-name">Audio</p>
+                    </a>
+                </li>
+                <li class="extra-category">
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/game.svg">
+                        <p class="category-name">Videojuegos</p>
+                    </a>
+                </li>
+                <li class="extra-category">
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/battery.svg">
+                        <p class="category-name">Energía</p>
+                    </a>
+                </li>
+                <li class="extra-category">
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/tool.svg">
+                        <p class="category-name">Herramientas</p>
+                    </a>
+                </li>
+                <li class="extra-category">
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/cable.svg">
+                        <p class="category-name">Cables</p>
+                    </a>
+                </li>
+                <li class="extra-category">
+                    <a href="#" class="category-item">
+                        <img class="category-icon" src="resources/icons/smart-home.svg">
+                        <p class="category-name">Smart Home</p>
+                    </a>
+                </li>
+            </ul>
+
+            <details class="more-categories">
+                <summary>Más categorías</summary>
+                <ul class="category-list extra-list">
+                    <li>
+                        <a href="#" class="category-item">
+                            <img class="category-icon" src="resources/icons/headphone.svg">
+                            <p class="category-name">Audio</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-item">
+                            <img class="category-icon" src="resources/icons/game.svg">
+                            <p class="category-name">Videojuegos</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-item">
+                            <img class="category-icon" src="resources/icons/battery.svg">
+                            <p class="category-name">Energía</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-item">
+                            <img class="category-icon" src="resources/icons/tool.svg">
+                            <p class="category-name">Herramientas</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-item">
+                            <img class="category-icon" src="resources/icons/cable.svg">
+                            <p class="category-name">Cables</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-item">
+                            <img class="category-icon" src="resources/icons/smart-home.svg">
+                            <p class="category-name">Smart Home</p>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </nav>
+    </header>
+    <main>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">ThinkPad X1</h1>
+                <p class="hero-text">
+                    La serie Lenovo ThinkPad X1 ofrece laptops de alta gama para profesionales, combinando diseño
+                    elegante, rendimiento
+                    excepcional y versatilidad, desde ultraligeras hasta 2 en 1 y plegables, con fiabilidad, seguridad y
+                    durabilidad
+                    garantizadas.
+                </p>
+                <button class="hero-button">Ver producto</button>
+            </div>
+        </section>
+
+        <h1 class="section-title">Ofertas del día</h1>
+        <section class="container">
+            <div class="card">
+                <img class="card-image" src="resources/nintendo-switch-2-.jpg" alt="">
+                <h2 class="card-title">Nintendo Switch 2</h2>
+                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <button class="card-button" onclick="location.href='producto.html'">Leer Más</button>
+            </div>
+
+            <div class="card">
+                <img class="card-image" src="resources/nintendo-switch-2-.jpg" alt="">
+                <h2 class="card-title">Nintendo Switch 2</h2>
+                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <button class="card-button" onclick="location.href='producto.html'">Leer Más</button>
+            </div>
+
+            <div class="card">
+                <img class="card-image" src="resources/nintendo-switch-2-.jpg" alt="">
+                <h2 class="card-title">Nintendo Switch 2</h2>
+                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <button class="card-button" onclick="location.href='producto.html'">Leer Más</button>
+            </div>
+
+            <div class="card">
+                <img class="card-image" src="resources/nintendo-switch-2-.jpg" alt="">
+                <h2 class="card-title">Nintendo Switch 2</h2>
+                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <button class="card-button" onclick="location.href='producto.html'">Leer Más</button>
+            </div>
+
+            <div class="card">
+                <img class="card-image" src="resources/nintendo-switch-2-.jpg" alt="">
+                <h2 class="card-title">Nintendo Switch 2</h2>
+                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <button class="card-button" onclick="location.href='producto.html'">Leer Más</button>
+            </div>
+
+            <div class="card">
+                <img class="card-image" src="resources/nintendo-switch-2-.jpg" alt="">
+                <h2 class="card-title">Nintendo Switch 2</h2>
+                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <button class="card-button" onclick="location.href='producto.html'">Leer Más</button>
+            </div>
+        </section>
+
+        <img src="resources/imagen 2.png" class="content-image">
+
+        <h1 class="section-title">Mas vendidos</h1>
+        <section class="container">
+            <div class="card">
+                <img class="card-image" src="resources/nintendo-switch-2-.jpg" alt="">
+                <h2 class="card-title">Nintendo Switch 2</h2>
+                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <button class="card-button" onclick="location.href='producto.html'">Leer Más</button>
+            </div>
+
+            <div class="card">
+                <img class="card-image" src="resources/nintendo-switch-2-.jpg" alt="">
+                <h2 class="card-title">Nintendo Switch 2</h2>
+                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <button class="card-button" onclick="location.href='producto.html'">Leer Más</button>
+            </div>
+
+            <div class="card">
+                <img class="card-image" src="resources/nintendo-switch-2-.jpg" alt="">
+                <h2 class="card-title">Nintendo Switch 2</h2>
+                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <button class="card-button" onclick="location.href='producto.html'">Leer Más</button>
+            </div>
+
+            <div class="card">
+                <img class="card-image" src="resources/nintendo-switch-2-.jpg" alt="">
+                <h2 class="card-title">Nintendo Switch 2</h2>
+                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <button class="card-button" onclick="location.href='producto.html'">Leer Más</button>
+            </div>
+
+            <div class="card">
+                <img class="card-image" src="resources/nintendo-switch-2-.jpg" alt="">
+                <h2 class="card-title">Nintendo Switch 2</h2>
+                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <button class="card-button" onclick="location.href='producto.html'">Leer Más</button>
+            </div>
+
+            <div class="card">
+                <img class="card-image" src="resources/nintendo-switch-2-.jpg" alt="">
+                <h2 class="card-title">Nintendo Switch 2</h2>
+                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <button class="card-button" onclick="location.href='producto.html'">Leer Más</button>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div>
+                <h3 class="newsletter-title">Suscribete al newsletter</h3>
+                <p class="newsletter-text">Registra tu correo para recibir noticias y promociones</p>
+            </div>
+            <form action="post">
+                <input type="email" placeholder="Ingresa tu correo" id="email" class="email-input">
+                <button type="submit" class="submit-button">Enviar</button>
+            </form>
+        </section>
+     </main>
+
+    <footer>
+        <div class="tw:footer tw:footer-horizontal tw:grid-cols-2 tw:mb-5">
+            <nav>
+                <h2 class="tw:footer-title">Soporte al cliente</h2>
+                <a href="#" class="tw:link tw:link-hover">Preguntas frecuentes</a>
+                <a href="#" class="tw:link tw:link-hover">Facturación</a>
+                <a href="#" class="tw:link tw:link-hover">Devolución y garantía</a>
+                <a href="#" class="tw:link tw:link-hover">Información de envíos</a>
+            </nav>
+            <nav class="link-category">
+                <h2 class="tw:footer-title"">Acerca de</h2>
+                <a href="#" class="tw:link tw:link-hover">¿Quiénes somos?</a>
+                <a href="#" class="tw:link tw:link-hover">Sostenibilidad</a>
+                <a href="#" class="tw:link tw:link-hover">Trabaja con nosotros</a>
+            </nav>
+            <nav">
+                <h2 class="tw:footer-title"">Legal</h2>
+                <a href="#" class="tw:link tw:link-hover">Términos y condiciones</a>
+                <a href="#" class="tw:link tw:link-hover">Política de privacidad</a>
+                <a href="#" class="tw:link tw:link-hover">Garantía de precio</a>
+            </nav>
+        </div>
+        <nav class="socials">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="resources/icons/facebook.svg">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="resources/icons/instagram.svg">
+            </a>
+            <a href="https://www.tiktok.com" target="_blank">
+                <img src="resources/icons/tiktok.svg">
+            </a>
+        </nav>
+     </footer>
+</body>
+
+</html>
