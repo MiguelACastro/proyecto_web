@@ -640,9 +640,6 @@
   .tw\:items-center {
     align-items: center;
   }
-  .tw\:justify-center {
-    justify-content: center;
-  }
   .tw\:gap-8 {
     gap: calc(var(--tw-spacing) * 8);
   }
@@ -671,17 +668,8 @@
   .tw\:object-cover {
     object-fit: cover;
   }
-  .tw\:p-2 {
-    padding: calc(var(--tw-spacing) * 2);
-  }
   .tw\:p-4 {
     padding: calc(var(--tw-spacing) * 4);
-  }
-  .tw\:pt-2 {
-    padding-top: calc(var(--tw-spacing) * 2);
-  }
-  .tw\:align-middle {
-    vertical-align: middle;
   }
   .tw\:text-2xl {
     font-size: var(--tw-text-2xl);
