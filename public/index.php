@@ -1,5 +1,6 @@
 <?php
-    include __DIR__.'/../src/views/layouts/header.php';
+    require __DIR__.'/../src/views/layouts/header.php';
+    $productos = getProductos();
 ?> 
     <main>
         <section class="hero">
@@ -18,94 +19,28 @@
 
         <h1 class="section-title">Ofertas del día</h1>
         <section class="container">
+            <?php foreach($productos as $producto): ?>
             <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg" alt="">
-                <h2 class="card-title">Nintendo Switch 2</h2>
-                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto['imagen'] ?>" alt="">
+                <h2 class="card-title"><?= $producto['nombre'] ?></h2>
+                <p class="card-text"><?= $producto['descripcion'] ?></p>
                 <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
             </div>
-
-            <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg" alt="">
-                <h2 class="card-title">Nintendo Switch 2</h2>
-                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
-                <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
-            </div>
-
-            <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg" alt="">
-                <h2 class="card-title">Nintendo Switch 2</h2>
-                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
-                <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
-            </div>
-
-            <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg" alt="">
-                <h2 class="card-title">Nintendo Switch 2</h2>
-                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
-                <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
-            </div>
-
-            <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg" alt="">
-                <h2 class="card-title">Nintendo Switch 2</h2>
-                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
-                <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
-            </div>
-
-            <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg" alt="">
-                <h2 class="card-title">Nintendo Switch 2</h2>
-                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
-                <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
-            </div>
+            <?php endforeach; ?>
         </section>
 
         <img src="<?=RESOURCES_PATH?>/imagen 2.png" class="content-image">
 
         <h1 class="section-title">Mas vendidos</h1>
         <section class="container">
+            <?php foreach($productos as $producto): ?>
             <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg" alt="">
-                <h2 class="card-title">Nintendo Switch 2</h2>
-                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
+                <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto['imagen'] ?>" alt="">
+                <h2 class="card-title"><?= $producto['nombre'] ?></h2>
+                <p class="card-text"><?= $producto['descripcion'] ?></p>
                 <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
             </div>
-
-            <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg" alt="">
-                <h2 class="card-title">Nintendo Switch 2</h2>
-                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
-                <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
-            </div>
-
-            <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg" alt="">
-                <h2 class="card-title">Nintendo Switch 2</h2>
-                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
-                <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
-            </div>
-
-            <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg" alt="">
-                <h2 class="card-title">Nintendo Switch 2</h2>
-                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
-                <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
-            </div>
-
-            <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg" alt="">
-                <h2 class="card-title">Nintendo Switch 2</h2>
-                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
-                <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
-            </div>
-
-            <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg" alt="">
-                <h2 class="card-title">Nintendo Switch 2</h2>
-                <p class="card-text">Ha llegado la siguiente evolución de la consola Nintendo Switch!</p>
-                <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
-            </div>
+            <?php endforeach; ?>
         </section>
 
         <section class="newsletter">
