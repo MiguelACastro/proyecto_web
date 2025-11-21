@@ -1,0 +1,17 @@
+{
+    "name": "miguel/proyecto",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Miguel\\Proyecto\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Miguel Castro",
+            "email": "mcastro_23@alu.uabcs.mx"
+        }
+    ]
+}

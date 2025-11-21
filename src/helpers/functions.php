@@ -1,4 +1,5 @@
 <?php 
+require __DIR__.'/../config/database.php';
 
 $config = require __DIR__.'/../config/config.php';
 
@@ -43,3 +44,49 @@ function getProductos() {
         ]
     ];
 };
+
+function getProducts() {
+    $pdo = getPDO();
+
+    try {
+        $query = "SELECT * FROM products";
+
+        $stmt = $pdo->query($query);
+
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $products;
+    }catch (PDOException $e) {
+        error_log('Error al consultar la base de datos: '. $e->getMessage());
+        return [];
+    }
+}
+
+function getProductDetails($productId = null) {
+    if($productId == null && isset($_GET['productId'])){
+        $productId = filter_input(INPUT_GET, 'productId', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+
+    if ($productId === null) {
+        return [];
+    }
+
+    $pdo = getPDO();
+
+    try {
+        $sql = "SELECT * FROM products WHERE id = :id LIMIT 1";
+
+        $stmt = $pdo->prepare($sql);
+
+        $stmt->execute(['id' => $productId]);
+
+        $productDetails = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$productDetails) {
+            return [];
+        }
+        return $productDetails;
+    } catch (PDOException $e) {
+        error_log('Error al consultar la base de datos: '. $e->getMessage());
+        return [];
+    }
+}

@@ -1,6 +1,6 @@
 <?php
     require __DIR__.'/../src/views/layouts/header.php';
-    $productos = getProductos();
+    $productos = getProducts();
 ?> 
     <main>
         <section class="hero">
@@ -21,10 +21,10 @@
         <section class="container">
             <?php foreach($productos as $producto): ?>
             <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto['imagen'] ?>" alt="">
-                <h2 class="card-title"><?= $producto['nombre'] ?></h2>
-                <p class="card-text"><?= $producto['descripcion'] ?></p>
-                <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
+                <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto['image'] ?>" alt="">
+                <h2 class="card-title"><?= $producto['name'] ?></h2>
+                <p class="card-text"><?= $producto['description'] ?></p>
+                <a class="card-button"  href="<?=SRC_PATH?>/views/producto.php?productId=<?=$producto['id']?>">Leer Más</a>
             </div>
             <?php endforeach; ?>
         </section>
@@ -35,10 +35,10 @@
         <section class="container">
             <?php foreach($productos as $producto): ?>
             <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto['imagen'] ?>" alt="">
-                <h2 class="card-title"><?= $producto['nombre'] ?></h2>
-                <p class="card-text"><?= $producto['descripcion'] ?></p>
-                <button class="card-button" onclick="location.href='../src/views/producto.php'">Leer Más</button>
+                <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto['image'] ?>" alt="">
+                <h2 class="card-title"><?= $producto['name'] ?></h2>
+                <p class="card-text"><?= $producto['description'] ?></p>
+                <a class="card-button" href="<?=SRC_PATH?>/views/producto.php?productId=<?=$producto['id']?>"">Leer Más</a>
             </div>
             <?php endforeach; ?>
         </section>

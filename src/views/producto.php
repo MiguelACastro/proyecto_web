@@ -1,29 +1,17 @@
 <?php
     include __DIR__.'/layouts/header.php';
+    $producto = getProductDetails();
 ?>
     <main>
     <div class="tw:flex tw:flex-col-reverse tw:md:flex-row tw:gap-8 tw:m-12">
         <div class="tw:carousel tw:carousel-start tw:self-center tw:w-full tw:bg-neutral tw:max-w-md tw:rounded-box tw:space-x-4 tw:p-4">
             <div class="tw:carousel-item">
-                <img src="<?=RESOURCES_PATH?>/ns2.png" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
-            </div>
-            <div class="tw:carousel-item">
-                <img src="<?=RESOURCES_PATH?>/nintendo-switch-2-.jpg"
-                    class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
-            </div>
-            <div class="tw:carousel-item">
-                <img src="<?=RESOURCES_PATH?>/ns2-2.png" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
-            </div>
-            <div class="tw:carousel-item">
-                <img src="<?=RESOURCES_PATH?>/mouse.png" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
-            </div>
-            <div class="tw:carousel-item">
-                <img src="<?=RESOURCES_PATH?>/joycons.png" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
+                <img src="<?=RESOURCES_PATH?>/<?=$producto['image']?>" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
             </div>
         </div>
         
         <div>
-            <h1 class="tw:text-4xl tw:font-semibold">Consola portatil Nintendo Switch 2 de 256GB</h1>
+            <h1 class="tw:text-4xl tw:font-semibold"><?=$producto['name']?></h1>
             <div class="tw:rating tw:items-center tw:mt-2 tw:mr-3">
                 <div class="tw:mask tw:mask-star" aria-label="1 star"></div>
                 <div class="tw:mask tw:mask-star" aria-label="2 star"></div>
@@ -33,8 +21,7 @@
             </div>
             <p class="tw:textarea-xl">10 reseñas</p>
             <div class="tw:divider"></div>
-            <span class="tw:text-4xl tw:text-red-600 tw:mr-2">$11,699</span>
-            <span class="tw:text-2xl tw:text-gray-600 tw:line-through">$14,999</span>
+            <span class="tw:text-4xl tw:text-red-600 tw:mr-2">$<?=number_format($producto['price'], 2)?></span>
             <div class="tw:divider"></div>
             <label for="cantidad" class="tw:block tw:text-xl tw:mb-1.5">Cantidad: </label>
             <input type="number" id="cantidad" class="tw:input tw:input-primary tw:text-xl tw:rounded-1xl tw:mb-5" />
@@ -44,58 +31,7 @@
     <div class="descripcion tw:m-12">
         <h2 class="tw:text-3xl tw:font-bold">Descripción</h2>
         <div class="tw:divider"></div>
-            <h3 class="tw:font-bold">¡Ya está aquí el siguiente paso en la evolución de Nintendo Switch!</h5>
-            <p>
-                Juega en una pantalla más grande, de 1080p, o conecta la consola al televisor para jugar en una resolución de hasta
-                4K*. Gracias a la compatibilidad con el alto rango dinámico (HDR) y una frecuencia de imágenes de hasta 120 fps,
-                disfrutarás de colores nítidos e intensos, así como de partidas fluidas.
-            </p>
-        
-            <p>
-                Acopla los nuevos mandos Joy-Con 2 a la consola con los conectores magnéticos. Incluso puedes usar ambos mandos a
-                modo de ratón en juegos compatibles.
-                Pásalo en grande con juegos nuevos y exclusivos para Nintendo Switch 2, como Mario Kart World. Además, también
-                podrás jugar a títulos compatibles de Nintendo Switch**.
-            </p>
-        
-            <h6>Contenido de la caja: </h6>
-            <ul class="tw:list-disc">
-                <li>1 consola Nintendo Switch 2</li>
-                <li>256 GB de almacenamiento total. Ten en cuenta que parte de la memoria interna se reserva para uso de la consola.
-                </li>
-                <li>1 mando Joy-Con 2 izquierdo</li>
-                <li>1 mando Joy-Con 2 derecho</li>
-                <li>2 correas de los mandos Joy-Con 2</li>
-                <li>1 base de Nintendo Switch 2</li>
-                <li>1 soporte para mandos Joy-Con 2</li>
-                <li>1 adaptador de corriente de Nintendo Switch 2</li>
-                <li>1 cable HDMI™ de ultra alta velocidad</li>
-                <li>1 folleto de información importante de Nintendo Switch 2</li>
-            </ul>
-        
-            <p>
-                La consola Nintendo Switch 2 está disponible en los siguientes idiomas:
-                Español, español de Latinoamérica, inglés del Reino Unido, inglés de EE. UU., francés, francés de Canadá, alemán,
-                italiano, neerlandés, portugués, portugués de Brasil, ruso, japonés, chino tradicional, chino simplificado y
-                coreano.
-            </p>
-        
-            <p>
-                Tamaño: aproximadamente 166 mm x 272 mm x 13,9 mm (con los mandos Joy-Con 2 acoplados).
-                30,7 mm de grosor máximo, desde el extremo de las palancas hasta las protuberancias de los botones ZL y ZR.
-                Peso: Aproximadamente 401 g (con los mandos Joy-Con 2 acoplados: 534 g aproximadamente).
-            </p>
-            <p>
-                * Tanto el televisor como el juego deben ser compatibles con una resolución de 4K. La frecuencia de imágenes para 4K
-                ofrece un máximo de 60 fps.
-            </p>
-        
-            <p>
-                ** Nintendo Switch 2 es compatible con juegos de Nintendo Switch, tanto en formato físico como digital. Es posible
-                que algunos títulos de Nintendo Switch sean incompatibles o no compatibles en su totalidad con Nintendo Switch 2.
-                Los suscriptores de Nintendo Switch Online podrán seguir disfrutando de este servicio en Nintendo Switch 2. Aquí
-                encontrarás más información sobre la compatibilidad.
-            </p>
+        <?=$producto['description']?>
     </div>
     <div class="tw:m-12">
         <h2 class="tw:text-3xl tw:font-bold">Productos relacionados</h2>
