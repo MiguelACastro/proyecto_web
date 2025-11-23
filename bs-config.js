@@ -1,6 +1,6 @@
 module.exports = {
-    proxy: "127.0.0.1:80",        
-    startPath: "/proyecto/public",
+    proxy: "electromax.test:80",        
+    startPath: "/",
     files: [
         "./public/*.css",      
         "./public/js/*.js",

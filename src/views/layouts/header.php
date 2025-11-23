@@ -1,6 +1,3 @@
-<?php 
-    include __DIR__.'/../../helpers/functions.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electromax</title>
-    <link rel="stylesheet" href="<?=BASE_PATH?>/output.css">
+    <link rel="stylesheet" href="<?=BASE_PATH?>output.css">
 </head>
 
 <body>

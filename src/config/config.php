@@ -5,8 +5,8 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/../../');
 $dotenv->load();
 
 return [
-    'base_url' => 'http://localhost:3000/proyecto/public',
-    'resources_url' => 'http://localhost:3000/proyecto/public/resources',
+    'base_url' => 'http://electromax.test:3000/',
+    'resources_url' => 'http://localhost:3000/resources',
     'src_url' => 'http://localhost:3000/proyecto/src',
     'db' => [
         'connection' => $_ENV['DB_CONNECTION'],
