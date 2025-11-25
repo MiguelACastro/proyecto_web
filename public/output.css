@@ -622,9 +622,6 @@
       scroll-snap-align: start;
     }
   }
-  .tw\:list-disc {
-    list-style-type: disc;
-  }
   .tw\:footer-horizontal {
     grid-auto-flow: column;
     &.tw\:footer-center {

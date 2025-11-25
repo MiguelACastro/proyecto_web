@@ -19,7 +19,7 @@ class ProductModel {
             $products = [];
 
             foreach($rows as $row) {
-                $product = new Product($row['id'], $row['name'], $row['description'], $row['price'], $row['image']);
+                $product = new Product($row['id'], $row['name'], $row['shortDescription'], $row['price'], $row['discount'], $row['category'], $row['mainImage'], null);
                 array_push($products, $product);
             }
 
@@ -43,7 +43,19 @@ class ProductModel {
                 return null;
             }
 
-            $product = new Product($productDetails['id'], $productDetails['name'], $productDetails['description'], $productDetails['price'], $productDetails['image']);
+            $sql = "SELECT * FROM product_images WHERE productId = :id";
+
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->execute(['id' => $id]);
+            
+            $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $carrouselImages = [];
+            foreach($images as $row) {
+                array_push($carrouselImages, $row['filename']);
+            }
+
+            $product = new Product($productDetails['id'], $productDetails['name'], $productDetails['description'], $productDetails['price'], $productDetails['discount'], $productDetails['category'], null, $carrouselImages);
 
             return $product;
         } catch (PDOException $e) {

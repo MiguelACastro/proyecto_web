@@ -2,7 +2,9 @@
     <div class="tw:flex tw:flex-col-reverse tw:md:flex-row tw:gap-8 tw:m-12">
         <div class="tw:carousel tw:carousel-start tw:self-center tw:w-full tw:bg-neutral tw:max-w-md tw:rounded-box tw:space-x-4 tw:p-4">
             <div class="tw:carousel-item">
-                <img src="<?=RESOURCES_PATH?>/<?=$product->image?>" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
+                <?php foreach($product->carrouselImages as $image): ?>
+                    <img src="<?=RESOURCES_PATH?>/<?=$image?>" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
+                <?php endforeach; ?>
             </div>
         </div>
         
@@ -15,20 +17,32 @@
                 <div class="tw:mask tw:mask-star" aria-label="4 star"></div>
                 <div class="tw:mask tw:mask-star" aria-label="5 star"></div>
             </div>
+
             <p class="tw:textarea-xl">10 reseñas</p>
+
             <div class="tw:divider"></div>
-            <span class="tw:text-4xl tw:text-red-600 tw:mr-2">$<?=number_format($product->price, 2)?></span>
+
+            <?php if($product->discount > 0): ?>
+                <span class="tw:text-4xl tw:text-red-600 tw:mr-2">$<?=number_format($product->price*(1-$product->discount) , 2)?></span>
+                <span class="tw:text-2xl tw:text-gray-600 tw:line-through">$<?=number_format($product->price, 2)?></span>
+            <?php else: ?>
+                <span class="tw:text-4xl tw:text-red-600 tw:mr-2">$<?=number_format($product->price, 2)?></span>
+            <?php endif; ?>
+
             <div class="tw:divider"></div>
+
             <label for="cantidad" class="tw:block tw:text-xl tw:mb-1.5">Cantidad: </label>
             <input type="number" id="cantidad" class="tw:input tw:input-primary tw:text-xl tw:rounded-1xl tw:mb-5" />
             <button class="tw:btn tw:w-1/1 tw:btn-primary tw:rounded-1xl">Añadir al carrito</button>
         </div>
     </div>
+
     <div class="descripcion tw:m-12">
         <h2 class="tw:text-3xl tw:font-bold">Descripción</h2>
         <div class="tw:divider"></div>
         <?=$product->description?>
     </div>
+    
     <div class="tw:m-12">
         <h2 class="tw:text-3xl tw:font-bold">Productos relacionados</h2>
         <div class="tw:divider"></div>
