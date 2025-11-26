@@ -1,0 +1,23 @@
+<?php
+namespace App\Controllers;
+
+use App\Models\ProductModel;
+
+class ProductController {
+
+    public function index() {
+        $productModel = new ProductModel(getPDO());
+        $products = $productModel->all();
+        return view('home/index', ['products' => $products]);
+    }
+
+    public function show($id) {
+        $productModel = new ProductModel(getPDO());
+        $product = $productModel->find($id);
+        if($product) {
+            return view('producto', ['product' => $product]);
+        } else {
+            return null;
+        }
+    }
+}

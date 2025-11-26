@@ -1,5 +1,9 @@
 <?php
-require __DIR__.'/Product.php';
+namespace App\Models;
+
+use App\Models\Product;
+use PDO;
+use PDOException;
 
 class ProductModel {
     private $pdo;
