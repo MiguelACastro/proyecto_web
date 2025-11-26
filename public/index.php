@@ -9,7 +9,8 @@ $method = $_SERVER['REQUEST_METHOD'];
 if($route === '' || $route === 'home') {
     if($method === 'GET') {
         $productModel = new ProductModel(getPDO());
-        return view('home/index', ['products' => $productModel->all()]);
+        $products = $productModel->all();
+        return view('home/index', ['products' => $products]);
     }
 }
 
@@ -18,7 +19,10 @@ if(preg_match('#^products\/(\d+)$#', $route, $matches)) {
 
     if($method === 'GET') {
         $productModel = new ProductModel(getPDO());
-        return view('producto', ['product' => $productModel->find($productId)]);
+        $product = $productModel->find($productId);
+        if($product) {
+            return view('producto', ['product' => $product]);
+        }
     }
 }
 

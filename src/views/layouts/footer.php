@@ -1,20 +1,20 @@
     <footer>
-        <div class="tw:footer tw:footer-horizontal tw:grid-cols-2 tw:mb-5">
-            <nav>
-                <h2 class="tw:footer-title">Soporte al cliente</h2>
+        <div class="tw:grid tw:grid-cols-1 tw:md:grid-cols-3 tw:gap-8 tw:mb-8 tw:text-center">
+            <nav class="tw:flex tw:flex-col tw:items-center tw:gap-2">
+                <h2 class="tw:footer-title tw:mb-2">Soporte al cliente</h2>
                 <a href="#" class="tw:link tw:link-hover">Preguntas frecuentes</a>
                 <a href="#" class="tw:link tw:link-hover">Facturación</a>
                 <a href="#" class="tw:link tw:link-hover">Devolución y garantía</a>
                 <a href="#" class="tw:link tw:link-hover">Información de envíos</a>
             </nav>
-            <nav class="link-category">
-                <h2 class="tw:footer-title"">Acerca de</h2>
+            <nav class="tw:flex tw:flex-col tw:items-center tw:gap-2">
+                <h2 class="tw:footer-title tw:mb-2">Acerca de</h2>
                 <a href="#" class="tw:link tw:link-hover">¿Quiénes somos?</a>
                 <a href="#" class="tw:link tw:link-hover">Sostenibilidad</a>
                 <a href="#" class="tw:link tw:link-hover">Trabaja con nosotros</a>
             </nav>
-            <nav">
-                <h2 class="tw:footer-title"">Legal</h2>
+            <nav class="tw:flex tw:flex-col tw:items-center tw:gap-2">
+                <h2 class="tw:footer-title tw:mb-2">Legal</h2>
                 <a href="#" class="tw:link tw:link-hover">Términos y condiciones</a>
                 <a href="#" class="tw:link tw:link-hover">Política de privacidad</a>
                 <a href="#" class="tw:link tw:link-hover">Garantía de precio</a>

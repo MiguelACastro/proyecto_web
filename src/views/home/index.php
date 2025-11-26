@@ -1,4 +1,4 @@
-    <main>
+   <main>
         <section class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">ThinkPad X1</h1>
@@ -17,7 +17,7 @@
         <section class="container">
             <?php foreach($products as $producto): ?>
             <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto->image ?>" alt="">
+                <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto->mainImage ?>" alt="">
                 <h2 class="card-title"><?= $producto->name ?></h2>
                 <p class="card-text"><?= $producto->description ?></p>
                 <a class="card-button"  href="<?=BASE_PATH?>products/<?=$producto->id?>">Leer Más</a>
@@ -31,7 +31,7 @@
         <section class="container">
             <?php foreach($products as $producto): ?>
             <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto->image ?>" alt="">
+                <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto->mainImage ?>" alt="">
                 <h2 class="card-title"><?= $producto->name ?></h2>
                 <p class="card-text"><?= $producto->description ?></p>
                 <a class="card-button"  href="<?=BASE_PATH?>products/<?=$producto->id?>">Leer Más</a>
