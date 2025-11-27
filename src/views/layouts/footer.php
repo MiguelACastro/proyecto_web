@@ -1,4 +1,4 @@
-    <footer>
+    <footer class="tw:bg-white">
         <div class="tw:grid tw:grid-cols-1 tw:md:grid-cols-3 tw:gap-8 tw:mb-8 tw:text-center">
             <nav class="tw:flex tw:flex-col tw:items-center tw:gap-2">
                 <h2 class="tw:footer-title tw:mb-2">Soporte al cliente</h2>

@@ -23,7 +23,7 @@ class ProductModel {
             $products = [];
 
             foreach($rows as $row) {
-                $product = new Product($row['id'], $row['name'], $row['shortDescription'], $row['price'], $row['discount'], $row['category'], $row['mainImage'], null);
+                $product = new Product($row['id'], $row['name'], $row['description'], $row['shortDescription'], $row['price'], $row['discount'], $row['category'], $row['mainImage'], null);
                 array_push($products, $product);
             }
 
@@ -59,7 +59,7 @@ class ProductModel {
                 array_push($carrouselImages, $row['filename']);
             }
 
-            $product = new Product($productDetails['id'], $productDetails['name'], $productDetails['description'], $productDetails['price'], $productDetails['discount'], $productDetails['category'], null, $carrouselImages);
+            $product = new Product($productDetails['id'], $productDetails['name'], $productDetails['description'], $productDetails['shortDescription'], $productDetails['price'], $productDetails['discount'], $productDetails['category'], null, $carrouselImages);
 
             return $product;
         } catch (PDOException $e) {

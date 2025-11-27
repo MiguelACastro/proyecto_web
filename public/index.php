@@ -24,5 +24,11 @@ if(preg_match('#^products\/(\d+)$#', $route, $matches)) {
     }
 }
 
+if($route === 'admin/products') {
+    if($method === 'GET') {
+        return (new ProductController())->adminIndex();
+    }
+}
+
 http_response_code(404);    
 return view('errors/404');

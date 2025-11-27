@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<?=BASE_PATH?>output.css">
 </head>
 
-<body>
+<body class="tw:bg-gray-100">
     <header>
         <div class="main-header">
             <div class="logo-container">

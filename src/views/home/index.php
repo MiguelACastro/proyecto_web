@@ -19,7 +19,7 @@
             <div class="card">
                 <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto->mainImage ?>" alt="">
                 <h2 class="card-title"><?= $producto->name ?></h2>
-                <p class="card-text"><?= $producto->description ?></p>
+                <p class="card-text"><?= $producto->shortDescription ?></p>
                 <a class="card-button"  href="<?=BASE_PATH?>products/<?=$producto->id?>">Leer Más</a>
             </div>
             <?php endforeach; ?>
@@ -33,7 +33,7 @@
             <div class="card">
                 <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto->mainImage ?>" alt="">
                 <h2 class="card-title"><?= $producto->name ?></h2>
-                <p class="card-text"><?= $producto->description ?></p>
+                <p class="card-text"><?= $producto->shortDescription ?></p>
                 <a class="card-button"  href="<?=BASE_PATH?>products/<?=$producto->id?>">Leer Más</a>
             </div>
             <?php endforeach; ?>
