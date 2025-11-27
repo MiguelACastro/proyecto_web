@@ -3,7 +3,7 @@
         <div class="tw:carousel tw:carousel-start tw:self-center tw:w-full tw:bg-neutral tw:max-w-md tw:rounded-box tw:space-x-4 tw:p-4">
             <div class="tw:carousel-item">
                 <?php foreach($product->carrouselImages as $image): ?>
-                    <img src="<?=RESOURCES_PATH?>/<?=$image?>" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
+                    <img src="<?=RESOURCES_PATH?>/img/<?=$image?>" class="tw:h-60 tw:md:h-80 tw:w-full tw:object-cover tw:rounded-box" />
                 <?php endforeach; ?>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <div class="tw:divider"></div>
 
             <?php if($product->discount > 0): ?>
-                <span class="tw:text-4xl tw:text-red-600 tw:mr-2">$<?=number_format($product->price*(1-$product->discount) , 2)?></span>
+                <span class="tw:text-4xl tw:text-red-600 tw:mr-2">$<?=number_format($product->price*(1-$product->discount/100) , 2)?></span>
                 <span class="tw:text-2xl tw:text-gray-600 tw:line-through">$<?=number_format($product->price, 2)?></span>
             <?php else: ?>
                 <span class="tw:text-4xl tw:text-red-600 tw:mr-2">$<?=number_format($product->price, 2)?></span>
@@ -48,7 +48,7 @@
         <div class="tw:divider"></div>
         <section class="container">
             <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/joy-cons.png">
+                <img class="card-image" src="<?=RESOURCES_PATH?>/img/joy-cons.png">
                 <h2 class="card-title">Joy-Cons</h2>
                 <p class="card-text">Lleva tu experiencia de juego al siguiente nivel con los Controles Azul y Rojo, diseñados para
                     ofrecerte una inmersión total y un rendimiento superior</p>
@@ -56,7 +56,7 @@
                 </div>
                 
                 <div class="card">
-                    <img class="card-image" src="<?=RESOURCES_PATH?>/pro-controller.png">
+                    <img class="card-image" src="<?=RESOURCES_PATH?>/img/pro-controller.png">
                     <h2 class="card-title">Pro Controller</h2>
                     <p class="card-text">El Control Pro inalámbrico está diseñado para brindar una experiencia de juego precisa, cómoda
                         y duradera en cada sesión de juego</p>
@@ -64,7 +64,7 @@
                 </div>
                 
                 <div class="card">
-                    <img class="card-image" src="<?=RESOURCES_PATH?>/sd-card.png">
+                    <img class="card-image" src="<?=RESOURCES_PATH?>/img/sd-card.png">
                     <h2 class="card-title">Memoria MicroSD 256GB</h2>
                     <p class="card-text">Expande el almacenamiento de tu Nintnendo Switch 2 con esta memoria diseñada para ofrecer
                         velocidad y rendimiento óptimo.</p>

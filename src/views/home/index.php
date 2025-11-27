@@ -17,7 +17,7 @@
         <section class="container">
             <?php foreach($products as $producto): ?>
             <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto->mainImage ?>" alt="">
+                <img class="card-image" src="<?=RESOURCES_PATH?>/img/<?= $producto->mainImage ?>" alt="">
                 <h2 class="card-title"><?= $producto->name ?></h2>
                 <p class="card-text"><?= $producto->shortDescription ?></p>
                 <a class="card-button"  href="<?=BASE_PATH?>products/<?=$producto->id?>">Leer Más</a>
@@ -25,13 +25,13 @@
             <?php endforeach; ?>
         </section>
 
-        <img src="<?=RESOURCES_PATH?>/imagen 2.png" class="content-image">
+        <img src="<?=RESOURCES_PATH?>/img/imagen 2.png" class="content-image">
 
         <h1 class="section-title">Mas vendidos</h1>
         <section class="container">
             <?php foreach($products as $producto): ?>
             <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/<?= $producto->mainImage ?>" alt="">
+                <img class="card-image" src="<?=RESOURCES_PATH?>/img/<?= $producto->mainImage ?>" alt="">
                 <h2 class="card-title"><?= $producto->name ?></h2>
                 <p class="card-text"><?= $producto->shortDescription ?></p>
                 <a class="card-button"  href="<?=BASE_PATH?>products/<?=$producto->id?>">Leer Más</a>

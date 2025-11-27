@@ -110,7 +110,7 @@
                                    class="tw:file-input tw:w-full tw:rounded-lg" />
                             <p class="tw:text-sm tw:text-gray-500">Imagen actual</p>
                             <?php if (!empty($product->mainImage)): ?>
-                                <img src="<?=RESOURCES_PATH?>/<?= $product->mainImage ?>" class="tw:w-1/3 tw:object-cover tw:rounded-md tw:border tw:border-base-400">
+                                <img src="<?=RESOURCES_PATH?>/img/<?= $product->mainImage ?>" class="tw:w-1/3 tw:object-cover tw:rounded-md tw:border tw:border-base-400">
                             <?php endif; ?>
                         </div>
 
@@ -129,7 +129,7 @@
                             <?php if (!empty($product->carrouselImages)): ?>
                                 <div class="tw:mt-2 tw:grid tw:grid-cols-4 tw:gap-2">
                                     <?php foreach ($product->carrouselImages as $img): ?>
-                                        <img src="<?=RESOURCES_PATH?>/<?= $img ?>" class="tw:w-full tw:object-cover tw:rounded-md tw:border tw:border-base-400">
+                                        <img src="<?=RESOURCES_PATH?>/img/<?= $img ?>" class="tw:w-full tw:object-cover tw:rounded-md tw:border tw:border-base-400">
                                     <?php endforeach; ?>
                                 </div>
                             <?php endif; ?>

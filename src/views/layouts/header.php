@@ -12,7 +12,7 @@
     <header>
         <div class="main-header">
             <div class="logo-container">
-                <img class="logo" src="<?=RESOURCES_PATH?>/logo.png"><span>Electromax</span>
+                <img class="logo" src="<?=RESOURCES_PATH?>/img/logo.png"><span>Electromax</span>
             </div>
             <div class="search-bar">
                 <input class="search-input" type="search" placeholder="Buscar producto">

@@ -33,6 +33,8 @@ if($route === 'admin/products') {
 if($route === 'admin/products/create') {
     if($method === 'GET') {
         return (new ProductController())->form();
+    } elseif ($method === 'POST') {
+        return (new ProductController())->store($_POST, $_FILES);
     }
 }
 

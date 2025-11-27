@@ -67,4 +67,41 @@ class ProductModel {
             return [];
         }
     }
+
+    public function insert($data) {
+        try {
+            $sql = 'INSERT INTO products (name, description, shortDescription, price, discount, category, mainImage) VALUES (?, ?, ?, ?, ?, ?, ?)';
+
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->execute([
+                $data['name'],
+                $data['description'],
+                $data['shortDescription'],
+                $data['price'],
+                $data['discount'],
+                $data['category'],
+                $data['mainImage']
+            ]);
+
+            $productId = $this->pdo->lastInsertId();
+
+            $sql = 'INSERT INTO product_images (productId, filename) VALUES (?, ?)';
+
+            $stmt = $this->pdo->prepare($sql);
+
+            foreach ($data['images'] as $image) {
+                $stmt->execute([
+                    $productId,
+                    $image
+                ]);
+            }
+
+            return $productId;
+        } catch (PDOException $e) {
+            error_log('Error al insertar el producto: '. $e->getMessage());
+            return false;
+        }
+    }
+
 }

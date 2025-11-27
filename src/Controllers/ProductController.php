@@ -37,4 +37,24 @@ class ProductController {
         }
         return view('admin/form', ['product'=> $product]);
     }
+
+    public function store($data, $files) {
+        $productModel = new ProductModel(getPDO());
+
+        $mainImageName = uploadImage($files['image'], 'img');
+
+        $carouselImages = transformImageArray($files['images']);
+        $carouselImagesNames = [];
+        if(isset($carouselImages)) {
+            foreach($carouselImages as $image) {
+                $carouselImagesNames[] = uploadImage($image, 'img');
+            }
+        }
+        $data['mainImage'] = $mainImageName;
+        $data['images'] = $carouselImagesNames;
+        $productModel->insert($data);
+        return redirect('/admin/products');
+    }
+
+    
 }

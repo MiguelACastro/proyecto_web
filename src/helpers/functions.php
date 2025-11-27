@@ -56,3 +56,45 @@ function view($template, $data=[]) {
     require $layoutPath. 'footer.php';
     return true;
 }
+
+function redirect($path) {
+    header('Location: '.BASE_PATH.'/'.$path);
+    exit;
+}
+
+function uploadImage($file, $folder) {
+    if (!isset($file) || $file['error'] !== UPLOAD_ERR_OK) {
+        return null;
+    }
+
+    $uploadDir = __DIR__ . "/../../public/resources/$folder/";
+
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+
+    $originalName = $file['name'];
+    $extension = pathinfo($originalName, PATHINFO_EXTENSION);
+
+    $imageName = uniqid($folder . '_') . '.' . $extension;
+
+    $tmpPath = $file['tmp_name'];
+    move_uploaded_file($tmpPath, $uploadDir . $imageName);
+
+    return $imageName;
+}
+
+function transformImageArray($images) {
+    $imageArray = [];
+    foreach ($images['name'] as $key => $name) {
+        $imageArray[] = [
+            'name' => $name,
+            'full_path' => $images['full_path'][$key],
+            'type' => $images['type'][$key],
+            'tmp_name' => $images['tmp_name'][$key],
+            'error' => $images['error'][$key],
+            'size' => $images['size'][$key]
+        ];
+    }
+    return $imageArray;
+}
