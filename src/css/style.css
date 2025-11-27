@@ -390,7 +390,7 @@ li:hover .submenu {
     width: 90%;
 }
 
-form {
+.newsletter form {
     display:flex;
     width: 60%;
 }
@@ -420,7 +420,7 @@ form {
   outline: none;
 }
 
-form:focus-within {
+.newsletter form:focus-within {
     outline: solid 1px var(--secondary-color);
 
 }

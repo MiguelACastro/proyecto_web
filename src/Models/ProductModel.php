@@ -59,7 +59,7 @@ class ProductModel {
                 array_push($carrouselImages, $row['filename']);
             }
 
-            $product = new Product($productDetails['id'], $productDetails['name'], $productDetails['description'], $productDetails['shortDescription'], $productDetails['price'], $productDetails['discount'], $productDetails['category'], null, $carrouselImages);
+            $product = new Product($productDetails['id'], $productDetails['name'], $productDetails['description'], $productDetails['shortDescription'], $productDetails['price'], $productDetails['discount'], $productDetails['category'], $productDetails['mainImage'], $carrouselImages);
 
             return $product;
         } catch (PDOException $e) {

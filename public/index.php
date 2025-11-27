@@ -30,5 +30,21 @@ if($route === 'admin/products') {
     }
 }
 
+if($route === 'admin/products/create') {
+    if($method === 'GET') {
+        return (new ProductController())->form();
+    }
+}
+
+if(preg_match('#^admin/products/edit/(\d+)$#', $route, $matches)) {
+    $productId = filter_var($matches[1], FILTER_SANITIZE_NUMBER_INT);
+    if($method === 'GET') {
+        $productEdit = (new ProductController())->form($productId);
+        if($productEdit) {
+            return $productEdit;
+        }
+    }
+}
+
 http_response_code(404);    
 return view('errors/404');

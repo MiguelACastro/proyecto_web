@@ -45,10 +45,10 @@
                         </td>
                         <td class="tw:px-6 tw:py-4 tw:text-right tw:text-sm">
                             <div class="tw:flex tw:justify-end tw:gap-3">
-                                <a href="<?=BASE_PATH?>/admin/products/edit/<?= $product->id ?>" class="tw:text-blue-900">
+                                <a href="<?=BASE_PATH?>admin/products/edit/<?= $product->id ?>" class="tw:text-blue-900">
                                     Editar
                                 </a>
-                                <a href="<?=BASE_PATH?>/admin/products/delete/<?= $product->id ?>" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?')" class="tw:text-red-900">
+                                <a href="<?=BASE_PATH?>admin/products/delete/<?= $product->id ?>" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?')" class="tw:text-red-900">
                                    Eliminar
                                 </a>
                             </div>

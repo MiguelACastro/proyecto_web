@@ -26,4 +26,15 @@ class ProductController {
             return false;
         }
     }
+    public function form($id = null) {
+        $productModel = new ProductModel(getPDO());
+        $product = [];
+        if($id) {
+            $product = $productModel->find($id);
+            if(!$product) {
+                return false;
+            }
+        }
+        return view('admin/form', ['product'=> $product]);
+    }
 }
