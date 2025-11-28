@@ -94,4 +94,20 @@ class ProductController {
         return redirect('admin/products');
     }
 
+    public function delete($id) {
+        $productModel = new ProductModel(getPDO());
+
+        $product = $productModel->find($id);
+        $mainImageName = $product->mainImage;
+        $carouselImagesNames = $product->carrouselImages;
+
+        $success = $productModel->delete($id);
+        if($success) {
+            deleteImage('img', $mainImageName);
+            foreach($carouselImagesNames as $carouselImageName) {
+                deleteImage('img', $carouselImageName);
+            }
+        }
+        return redirect('admin/products');
+    }
 }

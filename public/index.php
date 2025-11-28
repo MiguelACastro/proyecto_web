@@ -54,5 +54,10 @@ if(preg_match('#^admin/products/edit/(\d+)$#', $route, $matches)) {
     }
 }
 
+if (preg_match('#^admin/products/delete/(\d+)$#', $route, $matches)) {
+    $productId = filter_var($matches[1], FILTER_SANITIZE_NUMBER_INT);
+    return (new ProductController())->delete($productId);
+}
+
 http_response_code(404);    
 return view('errors/404');

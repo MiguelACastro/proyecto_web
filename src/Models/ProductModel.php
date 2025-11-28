@@ -145,4 +145,14 @@ class ProductModel {
         }
     }
 
+    public function delete($id) {
+        try {
+            $sql = 'DELETE FROM products WHERE id = ?';
+            $stmt = $this->pdo->prepare($sql);
+            return $stmt->execute([$id]);
+        } catch (PDOException $e) {
+            error_log('Error al eliminar el producto: ' . $e->getMessage());
+            return false;
+        }
+    }
 }
