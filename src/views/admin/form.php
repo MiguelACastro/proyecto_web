@@ -124,12 +124,19 @@
                                    multiple
                                    accept="image/*"
                                    class="tw:file-input tw:w-full tw:rounded-lg" />
-                            <p class="tw:text-sm tw:text-gray-500">Imagenes actuales.</p>
+                            <p class="tw:text-sm tw:text-gray-500 ">Imagenes actuales. (Selecciona las imagenes que deseas eliminar)</p>
                             
                             <?php if (!empty($product->carrouselImages)): ?>
-                                <div class="tw:mt-2 tw:grid tw:grid-cols-4 tw:gap-2">
+                                <div class="tw:mt-2 tw:grid tw:grid-cols-2 tw:sm:grid-cols-4 tw:gap-4">
                                     <?php foreach ($product->carrouselImages as $img): ?>
-                                        <img src="<?=RESOURCES_PATH?>/img/<?= $img ?>" class="tw:w-full tw:object-cover tw:rounded-md tw:border tw:border-base-400">
+                                        <div class="tw:relative">
+                                            <img src="<?=RESOURCES_PATH?>/img/<?= $img ?>" class="tw:w-full tw:object-cover tw:rounded-md tw:border tw:border-base-400">
+                                            <div class="tw:absolute tw:top-1 tw:right-1">
+                                                <label class="tw:label tw:cursor-pointer tw:rounded-full tw:p-1">
+                                                    <input type="checkbox" name="deletedImages[]" value="<?= $img ?>" class="tw:checkbox tw:checkbox-error tw:checkbox-xs" />
+                                                </label>
+                                            </div>
+                                        </div>
                                     <?php endforeach; ?>
                                 </div>
                             <?php endif; ?>

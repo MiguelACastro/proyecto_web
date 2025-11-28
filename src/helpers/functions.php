@@ -83,6 +83,14 @@ function uploadImage($file, $folder) {
 
     return $imageName;
 }
+function deleteImage($folder, $filename)
+{
+    $path = __DIR__ . "/../../public/resources/$folder/$filename";
+
+    if ($filename && file_exists($path)) {
+        unlink($path);
+    }
+}
 
 function transformImageArray($images) {
     $imageArray = [];

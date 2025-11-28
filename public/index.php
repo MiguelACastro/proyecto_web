@@ -7,6 +7,10 @@ use App\Controllers\ProductController;
 $route = trim($_GET['route'] ?? '', '/');
 
 $method = $_SERVER['REQUEST_METHOD'];
+if ($method === 'POST' && isset($_POST['_method'])) {
+    $method = strtoupper($_POST['_method']);
+}
+
 if($route === '' || $route === 'home') {
     if($method === 'GET') {
         return (new ProductController())->index();
@@ -45,6 +49,8 @@ if(preg_match('#^admin/products/edit/(\d+)$#', $route, $matches)) {
         if($productEdit) {
             return $productEdit;
         }
+    } elseif ($method === 'PUT') {
+        return (new ProductController())->update($productId, $_POST, $_FILES);
     }
 }
 

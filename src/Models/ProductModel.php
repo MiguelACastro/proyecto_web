@@ -86,21 +86,62 @@ class ProductModel {
 
             $productId = $this->pdo->lastInsertId();
 
-            $sql = 'INSERT INTO product_images (productId, filename) VALUES (?, ?)';
-
-            $stmt = $this->pdo->prepare($sql);
-
-            foreach ($data['images'] as $image) {
-                $stmt->execute([
-                    $productId,
-                    $image
-                ]);
-            }
+            $this->insertImages($productId, $data['images']);
 
             return $productId;
         } catch (PDOException $e) {
             error_log('Error al insertar el producto: '. $e->getMessage());
             return false;
+        }
+    }
+
+    public function update($data) {
+        try {
+            $sql = 'UPDATE products SET name = ?, description = ?, shortDescription = ?, price = ?, discount = ?, category = ?, mainImage = ? WHERE id = ?';
+
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([
+                $data['name'],
+                $data['description'],
+                $data['shortDescription'],
+                $data['price'],
+                $data['discount'],
+                $data['category'],
+                $data['mainImage'],
+                $data['id']
+            ]);
+
+            if (!empty($data['images'])) {
+                $this->insertImages($data['id'], $data['images']);
+            }
+
+            return true;
+        } catch (PDOException $e) {
+            error_log('Error al actualizar el producto: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function deleteProductImage($filename) {
+        try {
+            $sql = "DELETE FROM product_images WHERE filename = ?";
+            $stmt = $this->pdo->prepare($sql);
+            return $stmt->execute([$filename]);
+        } catch (PDOException $e) {
+            error_log('Error al eliminar imagen del producto: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    private function insertImages($productId, $images) {
+        $sql = 'INSERT INTO product_images (productId, filename) VALUES (?, ?)';
+        $stmt = $this->pdo->prepare($sql);
+
+        foreach ($images as $image) {
+            $stmt->execute([
+                $productId,
+                $image
+            ]);
         }
     }
 

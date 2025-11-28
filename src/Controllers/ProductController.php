@@ -53,8 +53,45 @@ class ProductController {
         $data['mainImage'] = $mainImageName;
         $data['images'] = $carouselImagesNames;
         $productModel->insert($data);
-        return redirect('/admin/products');
+        return redirect('admin/products');
     }
 
-    
+    public function update($id, $data, $files) {
+        $productModel = new ProductModel(getPDO());
+
+        $current = $productModel->find($id);
+        $imageName = $current->mainImage;
+
+        if(!empty($files['image']['name'])) {
+            $newImage = uploadImage($files['image'], 'img');
+
+            if($newImage) {
+                deleteImage('img' ,$imageName);
+                $imageName = $newImage;
+            }
+        }
+
+        if (isset($data['deletedImages'])) {
+            foreach ($data['deletedImages'] as $image) {
+                $productModel->deleteProductImage($image);
+                deleteImage('img', $image);
+            }
+        }
+
+        if (!empty($files['images']['name'][0])) {
+            $carouselImages = transformImageArray($files['images']);
+            foreach($carouselImages as $image) {
+                $newImage = uploadImage($image, 'img');
+                if ($newImage) {
+                    $carouselImagesNames[] = $newImage;
+                }
+            }
+        }
+        $data['id'] = $id;
+        $data['mainImage'] = $imageName;
+        $data['images'] = $carouselImagesNames;
+        $productModel->update($data);
+        return redirect('admin/products');
+    }
+
 }
