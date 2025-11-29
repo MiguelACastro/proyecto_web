@@ -19,11 +19,10 @@
     --tw-color-gray-900: oklch(21% 0.034 264.665);
     --tw-color-white: #fff;
     --tw-spacing: 0.25rem;
+    --tw-container-sm: 24rem;
     --tw-container-md: 28rem;
     --tw-container-5xl: 64rem;
     --tw-container-7xl: 80rem;
-    --tw-text-xs: 0.75rem;
-    --tw-text-xs--line-height: calc(1 / 0.75);
     --tw-text-sm: 0.875rem;
     --tw-text-sm--line-height: calc(1.25 / 0.875);
     --tw-text-lg: 1.125rem;
@@ -926,14 +925,14 @@
       }
     }
   }
-  .tw\:mt-1 {
-    margin-top: calc(var(--tw-spacing) * 1);
-  }
   .tw\:mt-2 {
     margin-top: calc(var(--tw-spacing) * 2);
   }
   .tw\:mt-4 {
     margin-top: calc(var(--tw-spacing) * 4);
+  }
+  .tw\:mt-6 {
+    margin-top: calc(var(--tw-spacing) * 6);
   }
   .tw\:mt-8 {
     margin-top: calc(var(--tw-spacing) * 8);
@@ -955,6 +954,9 @@
   }
   .tw\:mb-2 {
     margin-bottom: calc(var(--tw-spacing) * 2);
+  }
+  .tw\:mb-4 {
+    margin-bottom: calc(var(--tw-spacing) * 4);
   }
   .tw\:mb-5 {
     margin-bottom: calc(var(--tw-spacing) * 5);
@@ -1029,14 +1031,14 @@
   .tw\:grid {
     display: grid;
   }
-  .tw\:h-24 {
-    height: calc(var(--tw-spacing) * 24);
-  }
   .tw\:h-32 {
     height: calc(var(--tw-spacing) * 32);
   }
   .tw\:h-60 {
     height: calc(var(--tw-spacing) * 60);
+  }
+  .tw\:min-h-screen {
+    min-height: 100vh;
   }
   .tw\:w-1\/1 {
     width: calc(1/1 * 100%);
@@ -1055,6 +1057,9 @@
   }
   .tw\:max-w-md {
     max-width: var(--tw-container-md);
+  }
+  .tw\:max-w-sm {
+    max-width: var(--tw-container-sm);
   }
   .tw\:min-w-full {
     min-width: 100%;
@@ -1088,9 +1093,6 @@
   }
   .tw\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .tw\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .tw\:flex-col {
     flex-direction: column;
@@ -1177,14 +1179,14 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .tw\:border-base-300 {
-    border-color: var(--color-base-300);
-  }
   .tw\:border-gray-100 {
     border-color: var(--tw-color-gray-100);
   }
   .tw\:bg-base-100 {
     background-color: var(--color-base-100);
+  }
+  .tw\:bg-base-200 {
+    background-color: var(--color-base-200);
   }
   .tw\:bg-gray-50 {
     background-color: var(--tw-color-gray-50);
@@ -1197,12 +1199,6 @@
   }
   .tw\:bg-white {
     background-color: var(--tw-color-white);
-  }
-  .tw\:bg-white\/80 {
-    background-color: var(--tw-color-white);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--tw-color-white) 80%, transparent);
-    }
   }
   .tw\:mask-star {
     mask-image: url("data:image/svg+xml,%3csvg width='192' height='180' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m96 137.263-58.779 42.024 22.163-68.389L.894 68.481l72.476-.243L96 0l22.63 68.238 72.476.243-58.49 42.417 22.163 68.389z' fill-rule='evenodd'/%3e%3c/svg%3e");
@@ -1275,10 +1271,6 @@
     font-size: var(--tw-text-xl);
     line-height: var(--tw-leading, var(--tw-text-xl--line-height));
   }
-  .tw\:text-xs {
-    font-size: var(--tw-text-xs);
-    line-height: var(--tw-leading, var(--tw-text-xs--line-height));
-  }
   .tw\:textarea-xl {
     font-size: max(var(--font-size, 1.375rem), 1.375rem);
   }
@@ -1334,6 +1326,10 @@
   .tw\:line-through {
     text-decoration-line: line-through;
   }
+  .tw\:shadow-2xl {
+    --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
   .tw\:shadow-sm {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -1376,13 +1372,6 @@
       --input-color: var(--color-primary);
     }
   }
-  .tw\:hover\:bg-white {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--tw-color-white);
-      }
-    }
-  }
   .tw\:sm\:grid-cols-4 {
     @media (width >= 40rem) {
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1396,11 +1385,6 @@
   .tw\:md\:grid-cols-3 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-  .tw\:md\:grid-cols-4 {
-    @media (width >= 48rem) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
   .tw\:md\:flex-row {
@@ -1446,7 +1430,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: var(--background-color);
-  min-height: 200vh;
+  min-height: 100vh;
 }
 button, label {
   cursor: pointer;

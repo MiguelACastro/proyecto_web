@@ -1,14 +1,40 @@
 <?php
+if(session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 require __DIR__.'/../src/helpers/functions.php';
 
 use App\Controllers\ProductController;
+use App\Controllers\AuthController;
 
 $route = trim($_GET['route'] ?? '', '/');
 
 $method = $_SERVER['REQUEST_METHOD'];
 if ($method === 'POST' && isset($_POST['_method'])) {
     $method = strtoupper($_POST['_method']);
+}
+
+if(str_starts_with($route, 'admin/')) {
+    requireAuth();
+}
+
+if($route === 'login') {
+    if($method === 'GET') {
+        if(isAuth()) {
+            redirect('admin/products');
+        } else {
+            return viewWithoutLayout('auth/login');
+        }
+    } elseif ($method === 'POST') {
+        return (new AuthController())->attemptLogin($_POST['email'], $_POST['password']);
+    }
+}
+
+if($route === 'logout') {
+    if($method === 'GET') {
+        return (new AuthController())->logout();
+    }
 }
 
 if($route === '' || $route === 'home') {

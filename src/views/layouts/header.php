@@ -25,24 +25,24 @@
             <label class="menu-button" for="menu-toggle">☰</label>
             <nav class="action-container">
                 <ul class="action-bar">
+                    <?php if(isAuth()): ?>
                     <li>
-                        <a class="action-item" href="#">
+                        <a class="action-item" href="<?=BASE_PATH?>logout">
+                            <img class="action-icon" src="<?=RESOURCES_PATH?>/icons/account_icon.svg">Cerrar sesión
+                        </a>
+                    </li>
+                    <li>
+                        <a class="action-item" href="<?=BASE_PATH?>admin/products">
+                            <img class="action-icon" src="<?=RESOURCES_PATH?>/icons/admin.svg">Administrador
+                        </a>
+                    </li>
+                    <?php else: ?>
+                    <li>
+                        <a class="action-item" href="<?=BASE_PATH?>login">
                             <img class="action-icon" src="<?=RESOURCES_PATH?>/icons/account_icon.svg">Iniciar Sesión
                         </a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="#" class="action-item">Iniciar Sesión</a>
-                            </li>
-                            <li>
-                                <a href="#" class="action-item">Registrarse</a>
-                            </li>
-                        </ul>
                     </li>
-                    <li>
-                        <a class="action-item" href="#">
-                            <img class="action-icon" src="<?=RESOURCES_PATH?>/icons/cart_icon.svg">Carrito de compra
-                        </a>
-                    </li>
+                    <?php endif; ?>
                 </ul>
             </nav>
         </div>
