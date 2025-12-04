@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electromax</title>
     <link rel="stylesheet" href="<?=BASE_PATH?>output.css">
+    <link rel="icon" type="image/x-icon" href="<?=RESOURCES_PATH?>/img/logo.png">
 </head>
 
 <body class="tw:bg-gray-100">
     <header>
         <div class="main-header">
-            <div class="logo-container">
+            <a href="<?=BASE_PATH?>" class="logo-container">
                 <img class="logo" src="<?=RESOURCES_PATH?>/img/logo.png"><span>Electromax</span>
-            </div>
+            </a>
             <form class="search-bar" action="<?=BASE_PATH?>search" method="GET">
                 <input class="search-input" type="search" name="q" placeholder="Buscar producto" value="<?= $_GET['q'] ?? '' ?>">
                 <button class="search-button" type="submit">

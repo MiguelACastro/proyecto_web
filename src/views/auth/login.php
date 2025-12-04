@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
     <link href="<?=BASE_PATH?>/output.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="<?=RESOURCES_PATH?>/img/logo.png">
 </head>
 
 <body class="tw:bg-base-200 tw:flex tw:items-center tw:justify-center tw:min-h-screen tw:p-4">
