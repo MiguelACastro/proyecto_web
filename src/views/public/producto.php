@@ -42,34 +42,3 @@
         <div class="tw:divider"></div>
         <?=$product->description?>
     </div>
-    
-    <div class="tw:m-12">
-        <h2 class="tw:text-3xl tw:font-bold">Productos relacionados</h2>
-        <div class="tw:divider"></div>
-        <section class="container">
-            <div class="card">
-                <img class="card-image" src="<?=RESOURCES_PATH?>/img/joy-cons.png">
-                <h2 class="card-title">Joy-Cons</h2>
-                <p class="card-text">Lleva tu experiencia de juego al siguiente nivel con los Controles Azul y Rojo, diseñados para
-                    ofrecerte una inmersión total y un rendimiento superior</p>
-                <button class="card-button">Ver producto</button>
-                </div>
-                
-                <div class="card">
-                    <img class="card-image" src="<?=RESOURCES_PATH?>/img/pro-controller.png">
-                    <h2 class="card-title">Pro Controller</h2>
-                    <p class="card-text">El Control Pro inalámbrico está diseñado para brindar una experiencia de juego precisa, cómoda
-                        y duradera en cada sesión de juego</p>
-                    <button class="card-button">Ver producto</button>
-                </div>
-                
-                <div class="card">
-                    <img class="card-image" src="<?=RESOURCES_PATH?>/img/sd-card.png">
-                    <h2 class="card-title">Memoria MicroSD 256GB</h2>
-                    <p class="card-text">Expande el almacenamiento de tu Nintnendo Switch 2 con esta memoria diseñada para ofrecer
-                        velocidad y rendimiento óptimo.</p>
-                    <button class="card-button">Ver producto</button>
-                </div>
-        </section>
-    </div>
-    <div class="tw:divider"></div>

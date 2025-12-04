@@ -155,4 +155,40 @@ class ProductModel {
             return false;
         }
     }
+
+    public function search($query, $limit, $offset) {
+        try {
+            $sql = "SELECT * FROM products WHERE name LIKE :query OR description LIKE :query OR shortDescription LIKE :query LIMIT :limit OFFSET :offset";
+            $stmt = $this->pdo->prepare($sql);
+            $searchTerm = "%$query%";
+            $stmt->bindValue(':query', $searchTerm, PDO::PARAM_STR);
+            $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+            $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $products = [];
+            foreach($rows as $row) {
+                $product = new Product($row['id'], $row['name'], $row['description'], $row['shortDescription'], $row['price'], $row['discount'], $row['category'], $row['mainImage'], null);
+                array_push($products, $product);
+            }
+            return $products;
+        } catch (PDOException $e) {
+            error_log('Error al buscar productos: ' . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function countSearch($query) {
+        try {
+            $sql = 'SELECT COUNT(*) FROM products WHERE name LIKE ? OR description LIKE ? OR shortDescription LIKE ?';
+            $stmt = $this->pdo->prepare($sql);
+            $searchTerm = "%$query%";
+            $stmt->execute([$searchTerm, $searchTerm, $searchTerm]);
+            return $stmt->fetchColumn();
+        } catch (PDOException $e) {
+            error_log('Error al contar los productos: ' . $e->getMessage());
+            return 0;
+        }
+    }
 }

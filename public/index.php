@@ -43,6 +43,12 @@ if($route === '' || $route === 'home') {
     }
 }
 
+if($route === 'search') {
+    if($method === 'GET') {
+        return (new ProductController())->search();
+    }
+}
+
 if(preg_match('#^products\/(\d+)$#', $route, $matches)) {
     $productId = filter_var($matches[1], FILTER_SANITIZE_NUMBER_INT);
 

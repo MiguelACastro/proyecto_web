@@ -110,4 +110,25 @@ class ProductController {
         }
         return redirect('admin/products');
     }
+
+    public function search() {
+        $query = $_GET['q'] ?? '';
+        $page = $_GET['page'] ?? 1;
+        $limit = $_GET['limit'] ?? 10;
+        $offset = ($page - 1) * $limit;
+
+        $productModel = new ProductModel(getPDO());
+        $products = $productModel->search($query, $limit, $offset);
+        $totalProducts = $productModel->countSearch($query);
+        $totalPages = ceil($totalProducts / $limit);
+
+        return view('public/search', [
+            'products' => $products,
+            'query' => $query,
+            'currentPage' => $page,
+            'totalPages' => $totalPages,
+            'limit' => $limit,
+            'totalProducts' => $totalProducts
+        ]);
+    }
 }

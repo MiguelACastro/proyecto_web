@@ -14,12 +14,12 @@
             <div class="logo-container">
                 <img class="logo" src="<?=RESOURCES_PATH?>/img/logo.png"><span>Electromax</span>
             </div>
-            <div class="search-bar">
-                <input class="search-input" type="search" placeholder="Buscar producto">
-                <button class="search-button">
+            <form class="search-bar" action="<?=BASE_PATH?>search" method="GET">
+                <input class="search-input" type="search" name="q" placeholder="Buscar producto" value="<?= $_GET['q'] ?? '' ?>">
+                <button class="search-button" type="submit">
                     <img id="search-icon" src="<?=RESOURCES_PATH?>/icons/search_icon.svg">
                 </button>
-            </div>
+            </form>
 
             <input id="menu-toggle" class="menu-toggle" type="checkbox">
             <label class="menu-button" for="menu-toggle">☰</label>
