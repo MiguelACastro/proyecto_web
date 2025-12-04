@@ -39,6 +39,13 @@ class ProductController {
     }
 
     public function store($data, $files) {
+        $errors = $this->validate($data, $files);
+        if (!empty($errors)) {
+            $_SESSION['errors'] = $errors;
+            $_SESSION['oldData'] = $data;
+            return redirect('admin/products/create');
+        }
+
         $productModel = new ProductModel(getPDO());
 
         $mainImageName = uploadImage($files['image'], 'img');
@@ -57,6 +64,13 @@ class ProductController {
     }
 
     public function update($id, $data, $files) {
+        $errors = $this->validate($data, $files, $id);
+        if (!empty($errors)) {
+            $_SESSION['errors'] = $errors;
+            $_SESSION['oldData'] = $data;
+            return redirect('admin/products/edit/' . $id);
+        }
+
         $productModel = new ProductModel(getPDO());
 
         $current = $productModel->find($id);
@@ -153,5 +167,58 @@ class ProductController {
             'totalProducts' => $totalProducts,
             'url' => BASE_PATH . 'category/' . urlencode($categoryName)
         ]);
+    }
+
+    private function validate($data, $files, $id = null) {
+        $errors = [];
+
+        if (empty($data['name'])) {
+            $errors[] = "El nombre es obligatorio.";
+        } elseif (strlen($data['name']) > 255) {
+            $errors[] = "El nombre no puede exceder 255 caracteres.";
+        }
+
+        if (empty($data['shortDescription'])) {
+            $errors[] = "La descripción corta es obligatoria.";
+        } elseif (strlen($data['shortDescription']) > 1023) {
+            $errors[] = "La descripción corta no puede exceder 1023 caracteres.";
+        }
+
+        if (empty($data['description'])) {
+            $errors[] = "La descripción es obligatoria.";
+        } elseif (strlen($data['description']) > 65535) {
+            $errors[] = "La descripción no puede exceder 65535 caracteres.";
+        }
+
+        if (empty($data['price'])) {
+            $errors[] = "El precio es obligatorio.";
+        } elseif (!is_numeric($data['price']) || $data['price'] < 0) {
+            $errors[] = "El precio debe ser un número válido.";
+        }
+
+        if (!empty($data['discount'])) {
+            if (!is_numeric($data['discount']) || $data['discount'] < 0 || $data['discount'] > 100) {
+                $errors[] = "El descuento debe ser un número entre 0 y 100.";
+            }
+        }
+        
+        $categories = ['Computación', 'Telefonía', 'TV y Video', 'Audio', 'Videojuegos', 'Energía', 'Herramientas', 'Cables', 'Smart Home'];
+        if (empty($data['category'])) {
+            $errors[] = "La categoría es obligatoria.";
+        } elseif (!in_array($data['category'], $categories)) {
+            $errors[] = "La categoría seleccionada no es válida.";
+        }
+
+        if (!$id) {
+            if (empty($files['image']['name']) || $files['image']['error'] !== UPLOAD_ERR_OK) {
+                $errors[] = "La imagen principal es obligatoria.";
+            }
+
+            if (empty($files['images']['name'][0]) || $files['images']['error'][0] !== UPLOAD_ERR_OK) {
+                $errors[] = "Las imágenes del carrusel son obligatorias.";
+            }
+        }
+
+        return $errors;
     }
 }
