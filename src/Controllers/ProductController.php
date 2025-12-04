@@ -7,7 +7,7 @@ class ProductController {
 
     public function index() {
         $productModel = new ProductModel(getPDO());
-        $products = $productModel->all();
+        $products = $productModel->getRandom(3);
         return view('home/index', ['products' => $products]);
     }
 

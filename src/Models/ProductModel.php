@@ -225,4 +225,24 @@ class ProductModel {
             return 0;
         }
     }
+
+    public function getRandom($limit) {
+        try {
+            $sql = "SELECT * FROM products ORDER BY RAND() LIMIT :limit";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $products = [];
+            foreach($rows as $row) {
+                $product = new Product($row['id'], $row['name'], $row['description'], $row['shortDescription'], $row['price'], $row['discount'], $row['category'], $row['mainImage'], null);
+                array_push($products, $product);
+            }
+            return $products;
+        } catch (PDOException $e) {
+            error_log('Error al obtener productos: ' . $e->getMessage());
+            return [];
+        }
+    }
 }

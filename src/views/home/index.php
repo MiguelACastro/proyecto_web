@@ -9,7 +9,7 @@
                     durabilidad
                     garantizadas.
                 </p>
-                <button class="hero-button">Ver producto</button>
+                <a class="hero-button" href="<?=BASE_PATH?>products/9">Ver producto</a>
             </div>
         </section>
 
