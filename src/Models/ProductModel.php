@@ -191,4 +191,38 @@ class ProductModel {
             return 0;
         }
     }
+
+    public function getByCategory($category, $limit, $offset) {
+        try {
+            $sql = "SELECT * FROM products WHERE category = :category LIMIT :limit OFFSET :offset";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':category', $category, PDO::PARAM_STR);
+            $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+            $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $products = [];
+            foreach($rows as $row) {
+                $product = new Product($row['id'], $row['name'], $row['description'], $row['shortDescription'], $row['price'], $row['discount'], $row['category'], $row['mainImage'], null);
+                array_push($products, $product);
+            }
+            return $products;
+        } catch (PDOException $e) {
+            error_log('Error al buscar productos por categoria: ' . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function countCategoryProducts($category) {
+        try {
+            $sql = 'SELECT COUNT(*) FROM products WHERE category = ?';
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$category]);
+            return $stmt->fetchColumn();
+        } catch (PDOException $e) {
+            error_log('Error al contar los productos por categoria: ' . $e->getMessage());
+            return 0;
+        }
+    }
 }

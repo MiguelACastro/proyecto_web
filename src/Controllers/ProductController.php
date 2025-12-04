@@ -128,7 +128,30 @@ class ProductController {
             'currentPage' => $page,
             'totalPages' => $totalPages,
             'limit' => $limit,
-            'totalProducts' => $totalProducts
+            'totalProducts' => $totalProducts,
+            'url' => BASE_PATH . 'search'
+        ]);
+    }
+
+    public function categoryFilter($categoryName) {
+        $categoryName = urldecode($categoryName);
+        $page = $_GET['page'] ?? 1;
+        $limit = $_GET['limit'] ?? 10;
+        $offset = ($page - 1) * $limit;
+
+        $productModel = new ProductModel(getPDO());
+        $products = $productModel->getByCategory($categoryName, $limit, $offset);
+        $totalProducts = $productModel->countCategoryProducts($categoryName);
+        $totalPages = ceil($totalProducts / $limit);
+
+        return view('public/search', [
+            'products' => $products,
+            'query' => $categoryName,
+            'currentPage' => $page,
+            'totalPages' => $totalPages,
+            'limit' => $limit,
+            'totalProducts' => $totalProducts,
+            'url' => BASE_PATH . 'category/' . urlencode($categoryName)
         ]);
     }
 }

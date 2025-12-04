@@ -50,55 +50,55 @@
         <nav class="category-nav">
             <ul class="category-list">
                 <li>
-                    <a href="#" class="category-item">
+                    <a href="<?=BASE_PATH?>category/<?=urlencode('Computación')?>" class="category-item">
                         <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/computer.svg">
                         <p class="category-name">Computación</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="category-item">
+                    <a href="<?=BASE_PATH?>category/<?=urlencode('Telefonía')?>" class="category-item">
                         <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/smartphone.svg">
                         <p class="category-name">Telefonía</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="category-item">
+                    <a href="<?=BASE_PATH?>category/<?=urlencode('TV y Video')?>" class="category-item">
                         <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/tv.svg">
                         <p class="category-name">TV y Video</p>
                     </a>
                 </li>
                 <li class="extra-category">
-                    <a href="#" class="category-item">
+                    <a href="<?=BASE_PATH?>category/Audio" class="category-item">
                         <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/headphone.svg">
                         <p class="category-name">Audio</p>
                     </a>
                 </li>
                 <li class="extra-category">
-                    <a href="#" class="category-item">
+                    <a href="<?=BASE_PATH?>category/Videojuegos" class="category-item">
                         <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/game.svg">
                         <p class="category-name">Videojuegos</p>
                     </a>
                 </li>
                 <li class="extra-category">
-                    <a href="#" class="category-item">
+                    <a href="<?=BASE_PATH?>category/<?=urlencode('Energía')?>" class="category-item">
                         <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/battery.svg">
                         <p class="category-name">Energía</p>
                     </a>
                 </li>
                 <li class="extra-category">
-                    <a href="#" class="category-item">
+                    <a href="<?=BASE_PATH?>category/Herramientas" class="category-item">
                         <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/tool.svg">
                         <p class="category-name">Herramientas</p>
                     </a>
                 </li>
                 <li class="extra-category">
-                    <a href="#" class="category-item">
+                    <a href="<?=BASE_PATH?>category/Cables" class="category-item">
                         <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/cable.svg">
                         <p class="category-name">Cables</p>
                     </a>
                 </li>
                 <li class="extra-category">
-                    <a href="#" class="category-item">
+                    <a href="<?=BASE_PATH?>category/<?=urlencode('Smart Home')?>" class="category-item">
                         <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/smart-home.svg">
                         <p class="category-name">Smart Home</p>
                     </a>
@@ -109,37 +109,37 @@
                 <summary>Más categorías</summary>
                 <ul class="category-list extra-list">
                     <li>
-                        <a href="#" class="category-item">
+                        <a href="<?=BASE_PATH?>category/Audio" class="category-item">
                             <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/headphone.svg">
                             <p class="category-name">Audio</p>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="category-item">
+                        <a href="<?=BASE_PATH?>category/Videojuegos" class="category-item">
                             <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/game.svg">
                             <p class="category-name">Videojuegos</p>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="category-item">
+                        <a href="<?=BASE_PATH?>category/<?=urlencode('Energía')?>" class="category-item">
                             <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/battery.svg">
                             <p class="category-name">Energía</p>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="category-item">
+                        <a href="<?=BASE_PATH?>category/Herramientas" class="category-item">
                             <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/tool.svg">
                             <p class="category-name">Herramientas</p>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="category-item">
+                        <a href="<?=BASE_PATH?>category/Cables" class="category-item">
                             <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/cable.svg">
                             <p class="category-name">Cables</p>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="category-item">
+                        <a href="<?=BASE_PATH?>category/<?=urlencode('Smart Home')?>" class="category-item">
                             <img class="category-icon" src="<?=RESOURCES_PATH?>/icons/smart-home.svg">
                             <p class="category-name">Smart Home</p>
                         </a>

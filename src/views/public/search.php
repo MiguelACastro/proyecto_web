@@ -1,11 +1,17 @@
 <main class="tw:max-w-7xl tw:mx-auto tw:px-6 tw:py-12">
     <div class="tw:flex tw:justify-between tw:items-center tw:mb-8">
         <h1 class="tw:text-3xl tw:font-bold tw:text-gray-900">
-            Resultados de búsqueda para: "<?= $query ?>"
+            <?php if(str_contains($url, 'search')): ?>
+                Resultados de búsqueda para: "<?= $query ?>"
+            <?php else: ?>
+                Mostrando productos de la categoría: "<?= $query ?>"
+            <?php endif; ?>
         </h1>
         
-        <form method="GET" action="<?=BASE_PATH?>search" class="tw:flex tw:items-center tw:gap-2">
-            <input type="hidden" name="q" value="<?= $query ?>">
+        <form method="GET" action="<?= $url ?>" class="tw:flex tw:items-center tw:gap-2">
+            <?php if(str_contains($url, 'search')): ?>
+                <input type="hidden" name="q" value="<?= $query ?>">
+            <?php endif; ?>
             <span>Mostrar:</span>
             <select name="limit" id="limit" onchange="this.form.submit()">
                 <option value="5" <?= $limit == 5 ? 'selected' : '' ?>>5</option>
@@ -38,22 +44,31 @@
         <?php if ($totalPages > 1): ?>
         <div class="tw:flex tw:justify-center tw:mt-12">
             <nav class="tw:flex tw:gap-2">
+                <?php 
+                $parameters = [];
+                if(str_contains($url, 'search')) {
+                    $parameters['q'] = $query;
+                }
+                $parameters['limit'] = $limit;
+                
+                $baseUrl = $url;
+                ?>
                 <?php if ($currentPage > 1): ?>
-                    <a href="<?=BASE_PATH?>search?q=<?=urlencode($query)?>&page=<?=$currentPage-1?>&limit=<?=$limit?>" 
+                    <a href="<?= $baseUrl ?>?<?= http_build_query(array_merge($parameters, ['page' => $currentPage - 1])) ?>" 
                        class="tw:btn tw:btn-outline tw:btn-secondary tw:rounded-md tw:px-4 tw:py-2">
                         Anterior
                     </a>
                 <?php endif; ?>
 
                 <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                    <a href="<?=BASE_PATH?>search?q=<?=urlencode($query)?>&page=<?=$i?>&limit=<?=$limit?>" 
-                       class="tw:btn tw:btn-outline tw:rounded-md tw:px-4 tw:py-2" <?= $i == $currentPage ? 'tw:bg-blue-600 tw:text-white tw:border-blue-600' : 'tw:border-gray-300 tw:hover:bg-gray-50 tw:text-gray-700' ?> tw:rounded-lg">
+                    <a href="<?= $baseUrl ?>?<?= http_build_query(array_merge($parameters, ['page' => $i])) ?>" 
+                       class="tw:btn tw:btn-outline tw:rounded-md tw:px-4 tw:py-2 <?= $i == $currentPage ? 'tw:bg-blue-600 tw:text-white tw:border-blue-600' : 'tw:border-gray-300 tw:hover:bg-gray-50 tw:text-gray-700' ?>">
                         <?= $i ?>
                     </a>
                 <?php endfor; ?>
 
                 <?php if ($currentPage < $totalPages): ?>
-                    <a href="<?=BASE_PATH?>search?q=<?=urlencode($query)?>&page=<?=$currentPage+1?>&limit=<?=$limit?>" 
+                    <a href="<?= $baseUrl ?>?<?= http_build_query(array_merge($parameters, ['page' => $currentPage + 1])) ?>" 
                        class="tw:btn tw:btn-outline tw:btn-secondary tw:rounded-md tw:px-4 tw:py-2">
                         Siguiente
                     </a>
